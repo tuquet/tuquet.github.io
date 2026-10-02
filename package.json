@@ -4,8 +4,9 @@
   "private": true,
   "packageManager": "pnpm@12.4.1",
   "scripts": {
-    "dev": "vite --port 3333 --open",
-    "build": "cross-env NODE_ENV=production vite-ssg build && node -e \"fs.copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "dev": "tsx ./scripts/sponsors-circles.ts && vite --port 3333 --open",
+    "build": "tsx ./scripts/sponsors-circles.ts && cross-env NODE_ENV=production vite-ssg build && node -e \"fs.copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "sponsors": "tsx ./scripts/sponsors-circles.ts",
     "preview": "vite preview"
   },
   "dependencies": {

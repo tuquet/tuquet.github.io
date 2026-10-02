@@ -13,5 +13,5 @@ description: Sponsors of Tu Quet
 </div>
 
 <div slide-enter slide-enter-4>
-  <SponsorCircles />
+  <SponsorsView />
 </div>
