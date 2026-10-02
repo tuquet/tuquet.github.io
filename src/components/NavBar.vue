@@ -51,6 +51,10 @@ const viTarget = computed(() => {
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
+        <RouterLink to="/posts" title="Blog">
+          <span class="lt-md:hidden">Blog</span>
+          <div i-ri-article-line class="md:hidden" />
+        </RouterLink>
         <RouterLink :to="cvLink" title="CV & Resume">
           <span class="lt-md:hidden">CV</span>
           <div i-ri-file-user-line class="md:hidden" />
