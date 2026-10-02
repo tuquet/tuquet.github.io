@@ -12,11 +12,11 @@ function slug(name: string) {
       Projects that I created or maintaining.
     </p>
     <div class="prose pb5 mx-auto mt10 text-center">
-      <div flex="~ gap-2 justify-center">
+      <div flex="~ gap-2 justify-center wrap">
         <a
           href="https://github.com/tuquet"
           target="_blank"
-          class="group btn-blue inline-block"
+          class="group btn-blue inline-block text-xs sm:text-sm py-1 px-2.5"
         >
           <div
             i-ph-github-logo-duotone
@@ -26,7 +26,7 @@ function slug(name: string) {
         </a>
         <RouterLink
           to="/cv"
-          class="group btn-amber inline-block"
+          class="group btn-amber inline-block text-xs sm:text-sm py-1 px-2.5"
         >
           <div
             i-ph-user-duotone
@@ -37,7 +37,7 @@ function slug(name: string) {
         <a
           href="https://tuquet.github.io/automa"
           target="_blank"
-          class="group btn-lime inline-block"
+          class="group btn-lime inline-block text-xs sm:text-sm py-1 px-2.5"
         >
           <div
             i-ph-lightning-duotone
@@ -54,16 +54,16 @@ function slug(name: string) {
     >
       <div
         :id="slug(key)"
-        select-none relative h18 mt5 pointer-events-none slide-enter
+        select-none relative h14 sm:h18 mt5 pointer-events-none slide-enter overflow-hidden
         :style="{
           '--enter-stage': cidx - 2,
           '--enter-step': '60ms',
         }"
       >
-        <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>{{ key }}</span>
+        <span text-3.2em sm:text-5em color-transparent absolute left--0.5rem sm:left--1rem top-0rem font-bold leading-1em text-stroke-1 text-stroke-hex-aaa op35 dark:op20 whitespace-nowrap>{{ key }}</span>
       </div>
       <div
-        class="project-grid py-2 max-w-500 w-max mx-auto"
+        class="project-grid py-2 w-full max-w-500 mx-auto"
         grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
       >
         <component
@@ -114,13 +114,24 @@ function slug(name: string) {
 </template>
 
 <style scoped>
+.project-grid {
+  width: 100%;
+}
+
 .project-grid .item {
   background: transparent;
   font-size: 1.1rem;
-  width: 350px;
+  width: 100%;
   max-width: 100%;
   padding: 0.5rem 0.875rem 0.875rem;
   border-radius: 6px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .project-grid .item {
+    width: 350px;
+  }
 }
 
 .project-grid .item:hover {

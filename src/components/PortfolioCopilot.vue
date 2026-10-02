@@ -197,18 +197,18 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="portfolio-ai-container fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 print:hidden">
+  <div class="portfolio-ai-container fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 print:hidden">
     <!-- Trigger Floating Action Button -->
     <button
       type="button"
-      class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium bg-zinc-900 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 border border-zinc-800 dark:border-zinc-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 cursor-pointer"
+      class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-full text-xs font-medium bg-zinc-900 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 border border-zinc-800 dark:border-zinc-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-150 cursor-pointer"
       aria-label="Ask Tu Quet"
       @click="toggleOpen"
     >
       <img
         src="https://avatars.githubusercontent.com/u/20990824?v=4"
         alt="Tu Quet"
-        class="w-4.5 h-4.5 rounded-full object-cover"
+        class="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full object-cover"
       >
       <span>Ask Tu Quet</span>
       <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-zinc-800 text-zinc-300 dark:bg-zinc-200 dark:text-zinc-800">AI</span>
@@ -217,10 +217,10 @@ onUnmounted(() => {
     <!-- Chat Drawer Dialog -->
     <div
       v-if="isOpen"
-      class="fixed bottom-[70px] md:bottom-20 right-4 md:right-6 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-200 ease-out"
+      class="fixed bottom-[60px] md:bottom-20 left-3 right-3 md:left-auto md:right-6 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-200 ease-out"
       :class="isExpanded
-        ? 'w-[calc(100vw-32px)] md:w-[580px] h-[calc(100vh-95px)] md:h-[680px]'
-        : 'w-[calc(100vw-32px)] md:w-[390px] h-[calc(100vh-95px)] md:h-[530px]'"
+        ? 'w-auto md:w-[580px] h-[calc(100dvh-75px)] md:h-[680px]'
+        : 'w-auto md:w-[390px] h-[calc(100dvh-75px)] md:h-[530px] max-h-[580px]'"
       role="dialog"
       aria-label="Tu Quet AI Assistant"
     >

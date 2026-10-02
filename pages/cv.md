@@ -13,12 +13,22 @@ wrapperClass: 'max-w-5xl'
 ---
 
 <div class="mb-6">
-	<strong class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Nguyen Dinh Tu</strong><br/>
-	<span class="profile-nickname text-sm text-zinc-500 dark:text-zinc-400">Nickname: Tu Quet</span><br/>
-	<br/>
-	<strong>Phone:</strong> +84 936 683 088 &nbsp;|&nbsp; <strong>Email:</strong> tunyk.93@gmail.com &nbsp;|&nbsp; <strong>Location:</strong> Ha Dong, Ha Noi, Vietnam<br/>
-	<strong>Website:</strong> <a href="https://tuquet.github.io/" target="_blank" rel="noopener">https://tuquet.github.io/</a> &nbsp;|&nbsp; <strong>GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">https://github.com/tuquet</a><br/>
-	<strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">https://www.linkedin.com/in/tuquet</a> &nbsp;|&nbsp; <strong>NPM:</strong> <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener">https://www.npmjs.com/org/tuquet</a>
+  <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+    <div>
+      <strong class="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Nguyen Dinh Tu</strong>
+      <span class="profile-nickname text-sm text-zinc-500 dark:text-zinc-400 ml-2">(Tu Quet)</span>
+    </div>
+    <span class="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">Technical Project Lead &amp; Systems Architect</span>
+  </div>
+
+  <div class="flex flex-wrap gap-x-4 gap-y-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 pt-2 border-t border-zinc-200 dark:border-zinc-800">
+    <div><strong class="text-zinc-800 dark:text-zinc-200">Phone:</strong> <a href="tel:+84936683088" class="hover:underline">+84 936 683 088</a></div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">Email:</strong> <a href="mailto:tunyk.93@gmail.com" class="hover:underline">tunyk.93@gmail.com</a></div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">Location:</strong> Ha Noi, Vietnam</div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">Website:</strong> <a href="https://tuquet.github.io/" target="_blank" rel="noopener">tuquet.github.io</a></div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">github.com/tuquet</a></div>
+    <div><strong class="text-zinc-800 dark:text-zinc-200">LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">linkedin.com/in/tuquet</a></div>
+  </div>
 </div>
 
 <p><em>Technical Lead & Senior Software Engineer with a <strong>Product-first mindset</strong>, specialized in <strong>distributed backend systems</strong>, <strong>high-scale web applications</strong>, and <strong>optimizing engineering productivity</strong> through <strong>AI-augmented workflows (MCP, LLMs)</strong>.</em></p>

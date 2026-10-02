@@ -52,23 +52,23 @@ const demos = [
 </script>
 
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose mt-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 not-prose mt-6">
     <a
       v-for="demo in demos"
       :key="demo.title"
       :href="demo.link"
       :target="demo.external ? '_blank' : undefined"
       :rel="demo.external ? 'noopener' : undefined"
-      class="group block p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 transition duration-300 no-underline"
+      class="group block p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 transition duration-300 no-underline"
       :class="[demo.hoverBorder, demo.hoverBg]"
     >
-      <div class="flex items-center justify-between mb-3">
+      <div class="flex items-center justify-between mb-2 sm:mb-3">
         <span class="text-xs font-mono uppercase tracking-wider font-semibold" :class="demo.color">
           {{ demo.category }}
         </span>
         <span class="text-xs op50 group-hover:translate-x-1 transition-transform">&rarr;</span>
       </div>
-      <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-2 transition-colors" :class="demo.hoverText">
+      <h3 class="text-lg sm:text-xl font-bold text-zinc-900 dark:text-zinc-100 mb-2 transition-colors" :class="demo.hoverText">
         {{ demo.title }}
       </h3>
       <p class="text-sm op70 leading-relaxed mb-4">

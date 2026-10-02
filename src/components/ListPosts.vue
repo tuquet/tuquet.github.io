@@ -58,13 +58,13 @@ function getGroupName(p: Post) {
     <template v-for="(route, idx) in posts" :key="route.path">
       <div
         v-if="!isSameGroup(route, posts[idx - 1])"
-        select-none relative h20 pointer-events-none slide-enter
+        select-none relative h16 sm:h20 pointer-events-none slide-enter overflow-hidden
         :style="{
           '--enter-stage': idx - 2,
           '--enter-step': '60ms',
         }"
       >
-        <span text-8em color-transparent absolute left--3rem top--2rem font-bold text-stroke-2 text-stroke-hex-aaa op10>{{ getGroupName(route) }}</span>
+        <span text-5em sm:text-8em color-transparent absolute left--0.5rem sm:left--3rem top--1rem sm:top--2rem font-bold text-stroke-1.5 sm:text-stroke-2 text-stroke-hex-aaa op10 whitespace-nowrap>{{ getGroupName(route) }}</span>
       </div>
       <div
         class="slide-enter"

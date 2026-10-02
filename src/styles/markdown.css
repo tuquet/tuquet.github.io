@@ -102,13 +102,22 @@ html:not(.dark) .shiki span {
 
 .prose img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .prose p > img {
   width: 100%;
+  max-width: 100%;
   --uno: shadow rounded-lg;
-  transform: scale(1.05);
-  margin: 2.6em 0;
+  margin: 1.8em 0;
+}
+
+@media (min-width: 640px) {
+  .prose p > img {
+    transform: scale(1.05);
+    margin: 2.6em 0;
+  }
 }
 
 .prose {
@@ -159,14 +168,27 @@ a.item:hover {
 }
 
 a.header-anchor {
-  float: left;
   margin-top: 0.125em;
-  margin-left: -1.2em;
   padding-right: 0.5em;
   font-size: 0.85em;
   opacity: 0;
   text-decoration: none;
   border: 0 !important;
+}
+
+@media (min-width: 768px) {
+  a.header-anchor {
+    float: left;
+    margin-left: -1.2em;
+  }
+}
+
+@media (max-width: 767.98px) {
+  a.header-anchor {
+    display: inline-block;
+    margin-left: 0.25em;
+    opacity: 0.2;
+  }
 }
 
 a.header-anchor:hover,
@@ -194,7 +216,14 @@ h6:focus .header-anchor {
   font-style: normal;
   line-height: 1.6em;
   padding: 0.5em 1em;
-  margin-left: -1.1em;
+  margin-left: 0;
+  border-left: 3px solid rgba(125, 125, 125, 0.4);
+}
+
+@media (min-width: 768px) {
+  .prose blockquote {
+    margin-left: -1.1em;
+  }
 }
 
 .prose blockquote > * {
