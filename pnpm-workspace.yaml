@@ -1,4 +1,4 @@
-minimumReleaseAge: false
+minimumReleaseAge: 0
 catalogMode: prefer
 minimumReleaseAgeExclude:
   - '@iconify/json@2.2.478'
