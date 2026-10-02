@@ -34,10 +34,9 @@ export default defineConfig({
     presetWind3(),
     presetWebFonts({
       fonts: {
-        sans: 'Inter',
-        mono: 'DM Mono',
-        condensed: 'Roboto Condensed',
-        wisper: 'Bad Script',
+        sans: 'Roboto:300,400,500,700',
+        mono: 'DM Mono:400,500',
+        condensed: 'Roboto Condensed:400,700',
       },
     }),
   ],
@@ -46,5 +45,13 @@ export default defineConfig({
   ],
   safelist: [
     'i-ri-menu-2-fill',
+    'i-carbon-checkbox',
+    'i-carbon-checkbox-checked',
+    'i-ph-hand-heart-duotone',
+    'i-ph-hand-heart-fill',
+    'i-ph-heart-duotone',
+    'i-ph-heart-fill',
+    'i-simple-icons-facebook',
+    'i-ri-facebook-fill',
   ],
 })

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Tu Quet</title>
+    <link>https://tuquet.github.io</link>
+    <description>Tu Quet's Blog &amp; Engineering Portfolio</description>
+    <language>en</language>
+    <item>
+      <title>Zero-Zombie Chromium Supervision via Win32 Job Objects in Tokio</title>
+      <link>https://tuquet.github.io/posts/zero-zombie-chromium-supervision</link>
+      <guid>https://tuquet.github.io/posts/zero-zombie-chromium-supervision</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Deep-dive into production process lifecycle management, IPC completion ports, and distributed runtimes on Windows.</description>
+    </item>
+  </channel>
+</rss>

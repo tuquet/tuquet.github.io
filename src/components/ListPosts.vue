@@ -88,11 +88,6 @@ function getGroupName(p: Post) {
         >
           <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
             <div class="title text-lg leading-1.2em" flex="~ gap-2">
-              <span
-                v-if="route.lang === 'vi'"
-                align-middle flex-none
-                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--12 mr2 my-auto hidden md:block"
-              >VI</span>
               <span align-middle>{{ route.title }}</span>
               <span
                 v-if="route.redirect"
@@ -107,11 +102,6 @@ function getGroupName(p: Post) {
                 {{ formatDate(route.date, true) }}
               </span>
               <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
-              <span
-                v-if="route.lang === 'vi'"
-                align-middle flex-none
-                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
-              >VI</span>
             </div>
           </li>
         </component>

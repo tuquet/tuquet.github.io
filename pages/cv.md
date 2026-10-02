@@ -6,13 +6,12 @@ image: https://avatars.githubusercontent.com/u/20990824?v=4
 lang: en
 ---
 
-<CvHeader lang="en" />
+<CvHeader />
 
 <div align="center">
-  <img src="https://avatars.githubusercontent.com/u/20990824?v=4" alt="Nguyen Dinh Tu (Tu Quet)" class="w-24 h-24 rounded-full border-2 border-zinc-200 dark:border-zinc-800 shadow-md mx-auto my-3 object-cover" />
-	<strong style="font-size:1.45em">Nguyen Dinh Tu</strong><br/>
-	<span class="profile-nickname" style="font-size:0.9em;color:#71717a">Nickname: Tu Quet</span><br/>
-	<em>Technical Lead | Senior Software Engineer | Product-Minded Technologist</em><br/>
+	<strong class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Nguyen Dinh Tu</strong><br/>
+	<span class="profile-nickname text-sm text-zinc-500 dark:text-zinc-400">Nickname: Tu Quet</span><br/>
+	<em class="text-zinc-700 dark:text-zinc-300">Technical Lead | Senior Software Engineer | Product-Minded Technologist</em><br/>
 	<br/>
 	<strong>Phone:</strong> +84 936 683 088 &nbsp;|&nbsp; <strong>Email:</strong> tunyk.93@gmail.com &nbsp;|&nbsp; <strong>Location:</strong> Ha Dong, Ha Noi, Vietnam<br/>
 	<strong>GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">https://github.com/tuquet</a> &nbsp;|&nbsp; <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">https://www.linkedin.com/in/tuquet</a> &nbsp;|&nbsp; <strong>NPM:</strong> <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener">https://www.npmjs.com/org/tuquet</a>
@@ -190,22 +189,3 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Focus:** Full-Stack Web Development, Desktop Application Design & Software Architecture.
 - **Academic Standing:** GPA 8.2/10
 - **English Proficiency:** TOEIC 650 (Fluent technical reading/writing & professional collaboration)
-
----
-
-## INTERACTIVE ARTIFACTS & ECOSYSTEM SHOWCASE
-
-Explore live interactive architecture visualizers, technical documentation, component showcases, and open-source distributions across the Tuquet ecosystem:
-
-| Resource / System | Description & Technical Scope | Live Link |
-| :--- | :--- | :--- |
-| **Interactive Architecture Visualizer** | Multi-repository closed-loop orchestration pipeline (Archify JSON-IR with trace motion, deep-linking, and presentation mode) | [View Architecture Diagram ↗](https://tuquet.github.io/automa/pipeline.html) |
-| **Core Daemon API Reference** | Scalar OpenAPI interactive documentation for compiled Rust Axum / Tokio daemon services | [Explore API Reference ↗](https://tuquet.github.io/automa/api/) |
-| **Enterprise UI Component Library** | Interactive Storybook component suite for `@tuquet/vue-table` (TanStack Table) and `@tuquet/vue-ui` | [Open Live Storybook ↗](https://tuquet.github.io/lib/) |
-| **Automation Studio Web Portal** | High-performance browser automation & OS orchestration engine portal with live video demo | [Visit Automa Portal ↗](https://tuquet.github.io/automa/) |
-| **Windows Package Distribution** | Official Windows Scoop bucket for zero-config CLI (`tuquet`) and background runner daemon | [GitHub Scoop Bucket ↗](https://github.com/tuquet/tuquet-scoop-bucket) |
-| **NPM Modular Libraries** | Published production packages under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/vue-ui`, etc.) | [Browse NPM Registry ↗](https://www.npmjs.com/org/tuquet) |
-| **GitHub Releases & Source Code** | Complete multi-repo open-source codebase, release changelogs, and binary distributions | [Ecosystem Releases ↗](https://github.com/tuquet) |
-
-### Active Research & Development Keywords
-`Win32 Job Objects (Zero-Zombie)` • `Rust Axum / Tokio Async` • `Archify Interactive JSON-IR` • `Enterprise Data Grids (TanStack / Vue 3)` • `Anti-Detect Chromium Isolation` • `Single Source of Truth (~/.tuquet/)` • `Medallion Data Pipeline` • `Windows Scoop Distribution` • `High-Throughput Telemetry Streaming` • `AI-Augmented Engineering (MCP)`

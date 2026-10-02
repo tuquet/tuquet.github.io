@@ -1,23 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
-const props = withDefaults(defineProps<{
-  lang?: 'en' | 'vi'
-}>(), {
-  lang: 'en',
-})
-
-const pdfUrl = computed(() =>
-  props.lang === 'vi' ? '/pdf/tuquet_cv_vi.pdf' : '/pdf/tuquet_cv_en.pdf',
-)
-
-const pdfFilename = computed(() =>
-  props.lang === 'vi' ? 'tuquet_cv_vi.pdf' : 'tuquet_cv_en.pdf',
-)
-
-const downloadLabel = computed(() =>
-  props.lang === 'vi' ? 'Tải CV (PDF)' : 'Download PDF',
-)
+const pdfUrl = '/pdf/tuquet_cv.pdf'
+const pdfFilename = 'tuquet_cv.pdf'
+const downloadLabel = 'Download PDF'
 </script>
 
 <template>

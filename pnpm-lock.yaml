@@ -230,6 +230,10 @@ catalogs:
     vite-svg-loader:
       specifier: ^5.1.1
       version: 5.1.1
+  default:
+    opentype.js:
+      specifier: ^2.0.0
+      version: 2.0.0
   dev:
     '@iconify/json':
       specifier: ^2.2.520
@@ -428,6 +432,9 @@ importers:
       markdown-it-table-of-contents:
         specifier: catalog:build
         version: 1.2.0
+      opentype.js:
+        specifier: 'catalog:'
+        version: 2.0.0
       pathe:
         specifier: catalog:dev
         version: 2.0.3
@@ -2031,6 +2038,10 @@ packages:
   open@11.0.0:
     resolution: {integrity: sha512-smsWv2LzFjP03xmvFoJ331ss6h+jixfA4UUV/Bsiyuu4YJPfN+FIQGOIiv4w9/+MoHkfkJ22UIaQWRVFRfH6Vw==}
     engines: {node: '>=20'}
+
+  opentype.js@2.0.0:
+    resolution: {integrity: sha512-kCyjv6xdDY1W/jLWZ/L3QhhTlKUqDZMQ5+Jdlw12b3dXkKNpYBqqlMMj0YDQPShWFTMwgZI1hG14kN3XUDSg/A==}
+    hasBin: true
 
   oxc-parser@0.131.0:
     resolution: {integrity: sha512-SJ3/7ZPbgie8dr5Z9BI/M51zZbpXba+hRSG0MDzVwMW5CRQg2fjYE0jHGlLX4eeiibGgC/mzoDFKSDHwVZEHRQ==}
@@ -4134,6 +4145,8 @@ snapshots:
       is-inside-container: 1.0.0
       powershell-utils: 0.1.0
       wsl-utils: 0.3.1
+
+  opentype.js@2.0.0: {}
 
   oxc-parser@0.131.0:
     dependencies:

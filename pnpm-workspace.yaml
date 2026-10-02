@@ -101,3 +101,5 @@ allowBuilds:
   exifreader: true
   sharp: true
   simple-git-hooks: true
+catalog:
+  opentype.js: ^2.0.0
