@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
 function toTop() {
   window.scrollTo({
     top: 0,
@@ -7,6 +12,22 @@ function toTop() {
 }
 
 const { y: scroll } = useWindowScroll()
+
+const isVi = computed(() => route.path.startsWith('/vi'))
+
+const cvLink = computed(() => isVi.value ? '/vi/cv' : '/en/cv')
+
+const enTarget = computed(() => {
+  if (route.path.startsWith('/vi/cv'))
+    return '/en/cv'
+  return '/en/cv'
+})
+
+const viTarget = computed(() => {
+  if (route.path.startsWith('/en/cv'))
+    return '/vi/cv'
+  return '/vi/cv'
+})
 </script>
 
 <template>
@@ -30,9 +51,9 @@ const { y: scroll } = useWindowScroll()
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <a href="/cv" title="Interactive CV & Resume">
+        <RouterLink :to="cvLink" title="Interactive CV & Resume">
           <span>CV</span>
-        </a>
+        </RouterLink>
         <a href="https://tuquet.github.io/automa" target="_blank" title="Tuquet Automa" class="lt-md:hidden">
           <span>Automa</span>
         </a>
@@ -49,6 +70,32 @@ const { y: scroll } = useWindowScroll()
         <a href="https://www.linkedin.com/in/tuquet" target="_blank" title="LinkedIn" class="lt-md:hidden">
           <div i-ri-linkedin-line />
         </a>
+
+        <!-- Language Switcher in Menu -->
+        <div class="lang-switch flex items-center gap-1 text-xs font-mono font-medium">
+          <RouterLink
+            :to="enTarget"
+            class="px-1.5 py-0.5 rounded transition-all"
+            :class="!isVi
+              ? 'bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 font-semibold shadow-2xs'
+              : 'op45 hover:op100 text-inherit'"
+            title="English"
+          >
+            EN
+          </RouterLink>
+          <span class="op25">/</span>
+          <RouterLink
+            :to="viTarget"
+            class="px-1.5 py-0.5 rounded transition-all"
+            :class="isVi
+              ? 'bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 font-semibold shadow-2xs'
+              : 'op45 hover:op100 text-inherit'"
+            title="Tiếng Việt"
+          >
+            VI
+          </RouterLink>
+        </div>
+
         <ToggleTheme />
       </div>
     </nav>

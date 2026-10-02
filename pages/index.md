@@ -16,7 +16,7 @@ Dreaming up resilient systems, high-leverage developer tooling, and making workf
 <div class="my-6 p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/80 shadow-xs">
   <p class="m-0! text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
     Looking for my complete employment history, enterprise case studies, or downloadable PDF resume?<br/>
-    👉 <a href="/cv" class="font-semibold text-zinc-900 dark:text-zinc-100 underline underline-offset-4">View my Full Interactive CV & Resume here</a> <span class="op60 text-xs">(Available in EN &amp; VI, with live AI Copilot and downloadable vector PDF)</span>
+    👉 <a href="/en/cv" class="font-semibold text-zinc-900 dark:text-zinc-100 underline underline-offset-4">View my Full Interactive CV & Resume here</a> <span class="op60 text-xs">(Available in EN &amp; VI, with live AI Copilot and downloadable vector PDF)</span>
   </p>
 </div>
 

@@ -33,15 +33,15 @@ projects:
 
   Career & Case Studies:
     - name: 'Interactive CV & Resume'
-      link: '/cv'
+      link: '/en/cv'
       desc: 'Full professional profile with AI Copilot, role lenses, and PDF download'
       icon: 'i-carbon-user-profile'
     - name: 'EV Telemetry Platform'
-      link: '/cv'
+      link: '/en/cv'
       desc: 'Real-time telemetry streaming platform for 100k+ smart vehicles'
       icon: 'i-carbon-car'
     - name: 'Premier Theme Park Web Portal'
-      link: '/cv'
+      link: '/en/cv'
       desc: 'High-traffic consumer booking webview and ticket management platform'
       icon: 'i-carbon-ticket'
 

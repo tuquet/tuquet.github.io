@@ -88,4 +88,5 @@ onKeyStroke('Escape', (e) => {
       </div>
     </div>
   </Transition>
+  <PortfolioCopilot />
 </template>
