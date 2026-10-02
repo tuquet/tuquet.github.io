@@ -51,51 +51,34 @@ const viTarget = computed(() => {
     <nav class="nav">
       <div class="spacer" />
       <div class="right" print:op0>
-        <RouterLink :to="cvLink" title="Interactive CV & Resume">
-          <span>CV</span>
+        <RouterLink :to="cvLink" title="CV & Resume">
+          <span class="lt-md:hidden">CV</span>
+          <div i-ri-file-user-line class="md:hidden" />
         </RouterLink>
-        <a href="https://tuquet.github.io/automa" target="_blank" title="Tuquet Automa" class="lt-md:hidden">
-          <span>Automa</span>
-        </a>
-        <a href="https://tuquet.github.io/lib" target="_blank" title="Storybook UI Suite" class="lt-md:hidden">
-          <span>Storybook</span>
-        </a>
         <RouterLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <a href="https://github.com/tuquet" target="_blank" title="GitHub" class="lt-md:hidden">
+        <a href="https://tuquet.github.io/automa" target="_blank" rel="noopener" title="Tuquet Automa" class="lt-md:hidden">
+          <span>Automa</span>
+        </a>
+        <a href="https://tuquet.github.io/lib" target="_blank" rel="noopener" title="Storybook UI Suite" class="lt-md:hidden">
+          <span>Storybook</span>
+        </a>
+        <a href="https://github.com/tuquet" target="_blank" rel="noopener" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
-        <a href="https://www.linkedin.com/in/tuquet" target="_blank" title="LinkedIn" class="lt-md:hidden">
+        <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener" title="LinkedIn" class="lt-md:hidden">
           <div i-ri-linkedin-line />
         </a>
-
-        <!-- Language Switcher in Menu -->
-        <div class="lang-switch flex items-center gap-1 text-xs font-mono font-medium">
-          <RouterLink
-            :to="enTarget"
-            class="px-1.5 py-0.5 rounded transition-all"
-            :class="!isVi
-              ? 'bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 font-semibold shadow-2xs'
-              : 'op45 hover:op100 text-inherit'"
-            title="English"
-          >
-            EN
-          </RouterLink>
-          <span class="op25">/</span>
-          <RouterLink
-            :to="viTarget"
-            class="px-1.5 py-0.5 rounded transition-all"
-            :class="isVi
-              ? 'bg-zinc-200/90 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-50 font-semibold shadow-2xs'
-              : 'op45 hover:op100 text-inherit'"
-            title="Tiếng Việt"
-          >
-            VI
-          </RouterLink>
-        </div>
-
+        <RouterLink
+          :to="isVi ? enTarget : viTarget"
+          class="select-none font-mono"
+          :title="isVi ? 'Switch to English' : 'Chuyển sang Tiếng Việt'"
+        >
+          <span class="lt-md:hidden">{{ isVi ? 'EN' : 'VI' }}</span>
+          <div i-ri-translate-2 class="md:hidden" />
+        </RouterLink>
         <ToggleTheme />
       </div>
     </nav>
