@@ -1,6 +1,6 @@
 # tuquet.github.io
 
-Official personal homepage of Toby Nguyen (Nguyễn Đình Tú) — Technical Lead & Systems Architect.
+Official personal homepage of Nguyen Dinh Tu (Tu Quet) — Technical Lead & Systems Architect.
 
 🌐 Live at [https://tuquet.github.io/](https://tuquet.github.io/)
 

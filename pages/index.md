@@ -1,11 +1,11 @@
 ---
-title: Toby Nguyen
-description: Toby Nguyen's Engineering Portfolio & Personal Homepage
+title: Nguyen Dinh Tu
+description: Nguyen Dinh Tu (Tu Quet) - Engineering Portfolio & Personal Homepage
 image: https://avatars.githubusercontent.com/u/20990824?v=4
 art: plum
 ---
 
-Hey! I'm Toby Nguyen (Nguyễn Đình Tú / Tu Quet), a passionate software engineer and systems architect based in Hanoi, Vietnam.
+Hey! I’m Tu Nguyen (Tu Quet), a passionate software engineer and systems architect based in Hanoi, Vietnam.
 
 Technical Project Lead & Senior Software Engineer<br>
 Creator of {Automa} {Lib} {Runner} {Browser} {Cloud}<br>
