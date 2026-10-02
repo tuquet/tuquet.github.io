@@ -2,7 +2,7 @@
 title: Tu Quet
 description: Tu Quet's Portfolio
 image: https://tuquet.github.io/og.png
-art: random
+art: plum
 ---
 
 Hey! I'm Tu Quet, a passionate systems architect and software engineer.

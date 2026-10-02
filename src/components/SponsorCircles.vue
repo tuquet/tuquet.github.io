@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const mode = ref<'circles' | 'tiers'>('circles')
 const hoveredId = ref<string | null>(null)
@@ -7,361 +7,587 @@ const hoveredId = ref<string | null>(null)
 interface SponsorItem {
   id: string
   name: string
-  tier: 'executive' | 'enterprise' | 'foundational' | 'ecosystem' | 'tech'
+  tier: 'client' | 'employer' | 'ecosystem' | 'tech'
   link?: string
   left: number
   top: number
   size: number
   logo: string
   domain?: string
+  role?: string
   timeline?: string
   desc?: string
   tags?: string[]
 }
 
 const circles: SponsorItem[] = [
-  // Flagship Executive
   {
-    id: 'vinfast',
-    name: 'VinFast',
-    tier: 'executive',
-    link: '/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform',
-    left: 146.5,
-    top: 203.1,
-    size: 112,
-    logo: 'https://www.google.com/s2/favicons?domain=vinfastauto.com&sz=128',
-    domain: 'vinfastauto.com',
-    timeline: '2024 – Present',
-    desc: 'Real-time EV telemetry streaming platform for VinFast electric vehicles, processing millions of daily vehicle events with sub-100ms latency.',
-    tags: ['TypeScript', 'Next.js', 'Rust BFF', 'Redis Pub/Sub', 'WebSockets', 'Azure'],
+    "id": "vinfast",
+    "name": "VinFast",
+    "tier": "client",
+    "weight": 95,
+    "link": "/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform",
+    "logo": "/logos/vinfast.png",
+    "domain": "vinfastauto.com",
+    "role": "Flagship EV Telemetry Client (via CMC Global)",
+    "timeline": "2024 – Present",
+    "desc": "Real-time EV telemetry streaming platform for VinFast electric vehicles, processing millions of daily vehicle events with sub-100ms latency.",
+    "tags": [
+      "TypeScript",
+      "Next.js",
+      "Rust BFF",
+      "Redis Pub/Sub",
+      "WebSockets",
+      "Azure"
+    ],
+    "left": 141.2,
+    "top": 219.8,
+    "size": 148.8
   },
   {
-    id: 'icomm',
-    name: 'iCOMM Media & Tech',
-    tier: 'executive',
-    link: '/cv#big-data-analytics--interactive-intelligence-platform',
-    left: 258.5,
-    top: 207.1,
-    size: 104,
-    logo: '/logos/icomm.png',
-    domain: 'icomm.vn',
-    timeline: '2020 – 2024',
-    desc: 'Enterprise Big Data extraction, interactive intelligence dashboard, and high-density data visualization platform.',
-    tags: ['React', 'ECharts', 'Apache Solr', 'ClickHouse', 'Docker', 'Redis'],
-  },
-
-  // Enterprise Systems
-  {
-    id: 'cmc',
-    name: 'CMC Global',
-    tier: 'enterprise',
-    link: '/cv',
-    left: 212.2,
-    top: 297.6,
-    size: 96,
-    logo: 'https://www.google.com/s2/favicons?domain=cmcglobal.com.vn&sz=128',
-    domain: 'cmcglobal.com.vn',
-    timeline: '2024 – Present',
-    desc: 'Enterprise architecture governance, frontend engineering standards, and international digital transformation delivery.',
-    tags: ['Micro-frontends', 'Architecture', 'Team Leadership', 'Core Web Vitals'],
+    "id": "cmc",
+    "name": "CMC Global",
+    "tier": "employer",
+    "weight": 85,
+    "link": "/cv",
+    "logo": "/logos/cmc.png",
+    "domain": "cmcglobal.com.vn",
+    "role": "Technical Project Lead (Current)",
+    "timeline": "2024 – Present",
+    "desc": "Directing 3 engineering squads (15+ engineers) delivering the VinFast EV Telemetry platform and Lotte World portals. Driving architecture governance and Core Web Vitals.",
+    "tags": [
+      "Micro-frontends",
+      "Architecture",
+      "Team Leadership",
+      "Core Web Vitals"
+    ],
+    "left": 292.9,
+    "top": 226.9,
+    "size": 134.6
   },
   {
-    id: 'lotte',
-    name: 'Lotte Group',
-    tier: 'enterprise',
-    link: '/cv#high-scale-web--booking-portals--lotte-group-theme-park--hospitality',
-    left: 214.2,
-    top: 129,
-    size: 92,
-    logo: 'https://www.google.com/s2/favicons?domain=lotte.co.kr&sz=128',
-    domain: 'lotte.co.kr',
-    timeline: '2024',
-    desc: 'High-traffic Visitor Web Portals and Partner Booking WebViews for Lotte World amusement parks and hospitality destinations.',
-    tags: ['React', 'Vite', 'Tailwind CSS', 'Mobile WebViews', 'Spring Boot'],
+    "id": "icomm",
+    "name": "iCOMM Media & Tech",
+    "tier": "employer",
+    "weight": 82,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/icomm-symbol.png",
+    "domain": "icomm.vn",
+    "role": "Chief Product Officer & Tech Lead",
+    "timeline": "2020 – 2024",
+    "desc": "Directing enterprise Big Data extraction, interactive intelligence dashboard, and high-density data visualization platform leading 15+ engineers.",
+    "tags": [
+      "React",
+      "ECharts",
+      "Apache Solr",
+      "ClickHouse",
+      "Docker",
+      "Redis"
+    ],
+    "left": 229.5,
+    "top": 347.5,
+    "size": 130.4
   },
   {
-    id: 'ocg',
-    name: 'OpenCommerce Group',
-    tier: 'enterprise',
-    link: '/cv#high-converting-e-commerce-storefront--merchant-suite',
-    left: 123,
-    top: 116.8,
-    size: 92,
-    logo: 'https://www.google.com/s2/favicons?domain=opencommercegroup.com&sz=128',
-    domain: 'opencommercegroup.com',
-    timeline: '2018 – 2020',
-    desc: 'High-converting e-commerce storefront platform and intelligent cross-sell recommendation widgets (FCP < 1.2s, LCP < 1.8s).',
-    tags: ['Vue.js', 'React', 'PLG', 'Conversion Optimization', 'AWS'],
-  },
-
-  // Foundational Career
-  {
-    id: 'tdt',
-    name: 'TDT Asia',
-    tier: 'foundational',
-    link: '/cv#enterprise-japanese-business-management-portal',
-    left: 140.3,
-    top: 311.3,
-    size: 72,
-    logo: 'https://www.google.com/s2/favicons?domain=tdt.asia&sz=128',
-    domain: 'tdt.asia',
-    timeline: '2018',
-    desc: 'Enterprise Resource Planning (ERP) web applications customized to strict Japanese corporate quality standards.',
-    tags: ['Angular', 'RxJS', 'Spring Boot', 'MySQL'],
-  },
-
-  // Open Source Ecosystem
-  {
-    id: 'automa',
-    name: 'Automa',
-    tier: 'ecosystem',
-    link: 'https://tuquet.github.io/automa/',
-    left: 306.1,
-    top: 144.4,
-    size: 68,
-    logo: '/icons/automa.svg',
-    timeline: '2024 – Present',
-    desc: 'Closed-loop automation orchestration and headless browser coordination platform.',
-    tags: ['Vue 3', 'TypeScript', 'Axum', 'Scalar'],
+    "id": "lotte",
+    "name": "Lotte Group",
+    "tier": "client",
+    "weight": 68,
+    "link": "/cv#high-scale-web--booking-portals--lotte-group-theme-park--hospitality",
+    "logo": "/logos/lotte.png",
+    "domain": "lotte.co.kr",
+    "role": "Theme Park & Hospitality Portals (via CMC Global)",
+    "timeline": "2024",
+    "desc": "High-traffic Visitor Web Portals and Partner Booking WebViews for Lotte World amusement parks and hospitality destinations.",
+    "tags": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Mobile WebViews",
+      "Spring Boot"
+    ],
+    "left": 239.1,
+    "top": 132.6,
+    "size": 110.1
   },
   {
-    id: 'runner',
-    name: 'Runner',
-    tier: 'ecosystem',
-    link: 'https://github.com/tuquet/runner',
-    left: 307.9,
-    top: 305.8,
-    size: 64,
-    logo: '/icons/runner.svg',
-    timeline: '2024 – Present',
-    desc: 'Zero-zombie Chromium process supervision engine in Rust using Win32 Job Objects.',
-    tags: ['Rust', 'Win32 API', 'IO Completion Ports'],
+    "id": "vietcombank",
+    "name": "Vietcombank",
+    "tier": "client",
+    "weight": 62,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/vietcombank.svg",
+    "domain": "vietcombank.com.vn",
+    "role": "Big Data & Analytics Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "Enterprise financial data extraction, banking intelligence dashboards, and interactive reporting for Vietnam's leading commercial bank.",
+    "tags": [
+      "React",
+      "ECharts",
+      "ClickHouse",
+      "Apache Solr"
+    ],
+    "left": 136.4,
+    "top": 118.8,
+    "size": 101.4
   },
   {
-    id: 'browser',
-    name: 'Browser',
-    tier: 'ecosystem',
-    link: 'https://github.com/tuquet/browser',
-    left: 98,
-    top: 272.3,
-    size: 60,
-    logo: '/icons/browser.svg',
-    timeline: '2024 – Present',
-    desc: 'High-fidelity automation runtime with Chrome DevTools Protocol coordination.',
-    tags: ['CDP', 'TypeScript', 'Automation'],
+    "id": "vietnam-airlines",
+    "name": "Vietnam Airlines",
+    "tier": "client",
+    "weight": 62,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/vietnam-airlines.png",
+    "domain": "vietnamairlines.com",
+    "role": "National Aviation Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "Aviation operational intelligence, flight data visualization, and real-time passenger insight dashboard.",
+    "tags": [
+      "React",
+      "ECharts",
+      "Real-time Analytics"
+    ],
+    "left": 125.3,
+    "top": 365.2,
+    "size": 101.4
   },
   {
-    id: 'cloud',
-    name: 'Cloud',
-    tier: 'ecosystem',
-    link: 'https://github.com/tuquet/cloud',
-    left: 98.5,
-    top: 195.4,
-    size: 56,
-    logo: '/icons/cloud.svg',
-    timeline: '2024 – Present',
-    desc: 'Distributed cloud orchestration and secure Supabase synchronization.',
-    tags: ['Supabase', 'Cloudflare', 'Sync'],
-  },
-
-  // Tech Satellites
-  {
-    id: 'rust',
-    name: 'Rust',
-    tier: 'tech',
-    link: 'https://rust-lang.org',
-    left: 353.3,
-    top: 198.9,
-    size: 48,
-    logo: 'https://www.google.com/s2/favicons?domain=rust-lang.org&sz=128',
+    "id": "vietinbank",
+    "name": "VietinBank",
+    "tier": "client",
+    "weight": 60,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/vietinbank.svg",
+    "domain": "vietinbank.vn",
+    "role": "Banking Analytics Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "Multi-dimensional financial intelligence and interactive data grid analytics dashboard under strict enterprise SLA.",
+    "tags": [
+      "React",
+      "Highcharts",
+      "Big Data",
+      "Redis"
+    ],
+    "left": 352,
+    "top": 132.8,
+    "size": 98.4
   },
   {
-    id: 'vue',
-    name: 'Vue.js',
-    tier: 'tech',
-    link: 'https://vuejs.org',
-    left: 353,
-    top: 271.9,
-    size: 48,
-    logo: 'https://www.google.com/s2/favicons?domain=vuejs.org&sz=128',
+    "id": "bidv",
+    "name": "BIDV",
+    "tier": "client",
+    "weight": 60,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/bidv.svg",
+    "domain": "bidv.com.vn",
+    "role": "Banking Analytics Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "High-density banking intelligence visualization and automated reporting system for BIDV.",
+    "tags": [
+      "React",
+      "ECharts",
+      "Data Grid",
+      "Solr"
+    ],
+    "left": 362.3,
+    "top": 352.8,
+    "size": 98.4
   },
   {
-    id: 'react',
-    name: 'React',
-    tier: 'tech',
-    link: 'https://react.dev',
-    left: 287.8,
-    top: 103.8,
-    size: 48,
-    logo: 'https://www.google.com/s2/favicons?domain=react.dev&sz=128',
+    "id": "agribank",
+    "name": "Agribank",
+    "tier": "client",
+    "weight": 58,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/agribank.svg",
+    "domain": "agribank.com.vn",
+    "role": "Banking Analytics Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "Large-scale agricultural and rural banking data analytics dashboard and reporting infrastructure.",
+    "tags": [
+      "React",
+      "Data Visualizations",
+      "Big Data"
+    ],
+    "left": 59.5,
+    "top": 184,
+    "size": 95.4
   },
   {
-    id: 'next',
-    name: 'Next.js',
-    tier: 'tech',
-    link: 'https://nextjs.org',
-    left: 188.1,
-    top: 372.4,
-    size: 44,
-    logo: 'https://www.google.com/s2/favicons?domain=nextjs.org&sz=128',
+    "id": "vietjet",
+    "name": "Vietjet Air",
+    "tier": "client",
+    "weight": 56,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/vietjet.png",
+    "domain": "vietjetair.com",
+    "role": "Commercial Aviation Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "High-concurrency flight intelligence monitoring, booking analytics, and operational metrics dashboard.",
+    "tags": [
+      "React",
+      "Data Visualization",
+      "ClickHouse"
+    ],
+    "left": 57.6,
+    "top": 300.7,
+    "size": 92.5
   },
   {
-    id: 'spring',
-    name: 'Spring Boot',
-    tier: 'tech',
-    link: 'https://spring.io',
-    left: 294.9,
-    top: 364.7,
-    size: 44,
-    logo: 'https://www.google.com/s2/favicons?domain=spring.io&sz=128',
+    "id": "ocg",
+    "name": "OpenCommerce Group",
+    "tier": "employer",
+    "weight": 54,
+    "link": "/cv#high-converting-e-commerce-storefront--merchant-suite",
+    "logo": "https://www.google.com/s2/favicons?domain=opencommercegroup.com&sz=128",
+    "domain": "opencommercegroup.com",
+    "role": "Senior Software Engineer",
+    "timeline": "2018 – 2020",
+    "desc": "High-converting e-commerce storefront platform and intelligent cross-sell recommendation widgets (FCP < 1.2s, LCP < 1.8s).",
+    "tags": [
+      "Vue.js",
+      "React",
+      "PLG",
+      "Conversion Optimization",
+      "AWS"
+    ],
+    "left": 422.7,
+    "top": 208,
+    "size": 89.5
   },
   {
-    id: 'redis',
-    name: 'Redis',
-    tier: 'tech',
-    link: 'https://redis.io',
-    left: 199.2,
-    top: 97.3,
-    size: 44,
-    logo: 'https://www.google.com/s2/favicons?domain=redis.io&sz=128',
+    "id": "nha-atelier",
+    "name": "Nhà Atelier",
+    "tier": "client",
+    "weight": 52,
+    "link": "https://nhaateliertattoo.com",
+    "logo": "/logos/nha-atelier.jpg",
+    "domain": "nhaateliertattoo.com",
+    "role": "Creative Studio & Brand Partner",
+    "timeline": "2024 – Present",
+    "desc": "High-craft bespoke tattoo studio and art atelier based in Vietnam. Web platform & digital identity partner.",
+    "tags": [
+      "Brand Identity",
+      "Next.js",
+      "Creative Studio"
+    ],
+    "left": 442.2,
+    "top": 298.6,
+    "size": 86.5
   },
   {
-    id: 'azure',
-    name: 'Microsoft Azure',
-    tier: 'tech',
-    link: 'https://azure.microsoft.com',
-    left: 75.5,
-    top: 241.2,
-    size: 42,
-    logo: 'https://www.google.com/s2/favicons?domain=azure.microsoft.com&sz=128',
+    "id": "bamboo",
+    "name": "Bamboo Airways",
+    "tier": "client",
+    "weight": 50,
+    "link": "/cv#big-data-analytics--interactive-intelligence-platform",
+    "logo": "/logos/bamboo.svg",
+    "domain": "bambooairways.com",
+    "role": "Commercial Aviation Client (via iCOMM)",
+    "timeline": "2020 – 2024",
+    "desc": "Interactive flight intelligence dashboard and performance analytics platform.",
+    "tags": [
+      "React",
+      "ECharts",
+      "Interactive UI"
+    ],
+    "left": 208.6,
+    "top": 56.4,
+    "size": 83.5
   },
   {
-    id: 'docker',
-    name: 'Docker',
-    tier: 'tech',
-    link: 'https://docker.com',
-    left: 382.5,
-    top: 238.5,
-    size: 42,
-    logo: 'https://www.google.com/s2/favicons?domain=docker.com&sz=128',
+    "id": "automa",
+    "name": "Automa",
+    "tier": "ecosystem",
+    "weight": 48,
+    "link": "https://tuquet.github.io/automa/",
+    "logo": "/icons/automa.svg",
+    "role": "Creator & Maintainer",
+    "timeline": "2024 – Present",
+    "desc": "Closed-loop automation orchestration and headless browser coordination platform.",
+    "tags": [
+      "Vue 3",
+      "TypeScript",
+      "Axum",
+      "Scalar"
+    ],
+    "left": 308.5,
+    "top": 65.8,
+    "size": 80.5
   },
   {
-    id: 'k8s',
-    name: 'Kubernetes',
-    tier: 'tech',
-    link: 'https://kubernetes.io',
-    left: 371.9,
-    top: 317,
-    size: 42,
-    logo: 'https://www.google.com/s2/favicons?domain=kubernetes.io&sz=128',
+    "id": "tdt",
+    "name": "TDT Asia",
+    "tier": "employer",
+    "weight": 46,
+    "link": "/cv#enterprise-japanese-business-management-portal",
+    "logo": "https://www.google.com/s2/favicons?domain=tdt.asia&sz=128",
+    "domain": "tdt.asia",
+    "role": "Fullstack Software Engineer",
+    "timeline": "2018",
+    "desc": "Enterprise Resource Planning (ERP) web applications customized to strict Japanese corporate quality standards.",
+    "tags": [
+      "Angular",
+      "RxJS",
+      "Spring Boot",
+      "MySQL"
+    ],
+    "left": 186.6,
+    "top": 455.2,
+    "size": 77.5
   },
   {
-    id: 'supabase',
-    name: 'Supabase',
-    tier: 'tech',
-    link: 'https://supabase.com',
-    left: 374,
-    top: 162.2,
-    size: 40,
-    logo: 'https://www.google.com/s2/favicons?domain=supabase.com&sz=128',
+    "id": "runner",
+    "name": "Runner",
+    "tier": "ecosystem",
+    "weight": 46,
+    "link": "https://github.com/tuquet/runner",
+    "logo": "/icons/runner.svg",
+    "role": "Creator & Maintainer",
+    "timeline": "2024 – Present",
+    "desc": "Zero-zombie Chromium process supervision engine in Rust using Win32 Job Objects.",
+    "tags": [
+      "Rust",
+      "Win32 API",
+      "IO Completion Ports"
+    ],
+    "left": 334.9,
+    "top": 445.9,
+    "size": 77.5
   },
   {
-    id: 'clickhouse',
-    name: 'ClickHouse',
-    tier: 'tech',
-    link: 'https://clickhouse.com',
-    left: 251.5,
-    top: 90,
-    size: 40,
-    logo: 'https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128',
+    "id": "browser",
+    "name": "Browser",
+    "tier": "ecosystem",
+    "weight": 44,
+    "link": "https://github.com/tuquet/browser",
+    "logo": "/icons/browser.svg",
+    "role": "Creator & Maintainer",
+    "timeline": "2024 – Present",
+    "desc": "High-fidelity automation runtime with Chrome DevTools Protocol coordination.",
+    "tags": [
+      "CDP",
+      "TypeScript",
+      "Automation"
+    ],
+    "left": 3,
+    "top": 251.3,
+    "size": 74.4
   },
   {
-    id: 'tailwind',
-    name: 'Tailwind CSS',
-    tier: 'tech',
-    link: 'https://tailwindcss.com',
-    left: 102.4,
-    top: 331.8,
-    size: 38,
-    logo: 'https://www.google.com/s2/favicons?domain=tailwindcss.com&sz=128',
+    "id": "cloud",
+    "name": "Cloud",
+    "tier": "ecosystem",
+    "weight": 42,
+    "link": "https://github.com/tuquet/cloud",
+    "logo": "/icons/cloud.svg",
+    "role": "Creator & Maintainer",
+    "timeline": "2024 – Present",
+    "desc": "Distributed cloud orchestration and secure Supabase synchronization.",
+    "tags": [
+      "Supabase",
+      "Cloudflare",
+      "Sync"
+    ],
+    "left": 270.1,
+    "top": 4.3,
+    "size": 71.4
   },
   {
-    id: 'vite',
-    name: 'Vite',
-    tier: 'tech',
-    link: 'https://vite.dev',
-    left: 263.4,
-    top: 389.8,
-    size: 38,
-    logo: 'https://www.google.com/s2/favicons?domain=vite.dev&sz=128',
+    "id": "rust",
+    "name": "Rust",
+    "tier": "tech",
+    "weight": 26,
+    "link": "https://rust-lang.org",
+    "logo": "https://www.google.com/s2/favicons?domain=rust-lang.org&sz=128",
+    "left": 88,
+    "top": 134.9,
+    "size": 46.4
   },
   {
-    id: 'ts',
-    name: 'TypeScript',
-    tier: 'tech',
-    link: 'https://typescriptlang.org',
-    left: 226.1,
-    top: 396.9,
-    size: 38,
-    logo: 'https://www.google.com/s2/favicons?domain=typescriptlang.org&sz=128',
+    "id": "vue",
+    "name": "Vue.js",
+    "tier": "tech",
+    "weight": 26,
+    "link": "https://vuejs.org",
+    "logo": "https://www.google.com/s2/favicons?domain=vuejs.org&sz=128",
+    "left": 453.3,
+    "top": 159.3,
+    "size": 46.4
   },
   {
-    id: 'github',
-    name: 'GitHub',
-    tier: 'tech',
-    link: 'https://github.com',
-    left: 223.4,
-    top: 65.1,
-    size: 38,
-    logo: 'https://www.google.com/s2/favicons?domain=github.com&sz=128',
+    "id": "react",
+    "name": "React",
+    "tier": "tech",
+    "weight": 26,
+    "link": "https://react.dev",
+    "logo": "https://www.google.com/s2/favicons?domain=react.dev&sz=128",
+    "left": 76.1,
+    "top": 395.9,
+    "size": 46.4
   },
   {
-    id: 'solr',
-    name: 'Apache Solr',
-    tier: 'tech',
-    link: 'https://solr.apache.org',
-    left: 89.7,
-    top: 163.3,
-    size: 36,
-    logo: 'https://www.google.com/s2/favicons?domain=solr.apache.org&sz=128',
+    "id": "next",
+    "name": "Next.js",
+    "tier": "tech",
+    "weight": 24,
+    "link": "https://nextjs.org",
+    "logo": "https://www.google.com/s2/favicons?domain=nextjs.org&sz=128",
+    "left": 266.4,
+    "top": 480.5,
+    "size": 43.1
   },
   {
-    id: 'postgres',
-    name: 'PostgreSQL',
-    tier: 'tech',
-    link: 'https://postgresql.org',
-    left: 338.9,
-    top: 366.9,
-    size: 36,
-    logo: 'https://www.google.com/s2/favicons?domain=postgresql.org&sz=128',
+    "id": "spring",
+    "name": "Spring Boot",
+    "tier": "tech",
+    "weight": 24,
+    "link": "https://spring.io",
+    "logo": "https://www.google.com/s2/favicons?domain=spring.io&sz=128",
+    "left": 305.2,
+    "top": 505.4,
+    "size": 43.1
   },
   {
-    id: 'shopify',
-    name: 'Shopify',
-    tier: 'tech',
-    link: 'https://shopify.com',
-    left: 335.8,
-    top: 110.2,
-    size: 36,
-    logo: 'https://www.google.com/s2/favicons?domain=shopify.com&sz=128',
+    "id": "redis",
+    "name": "Redis",
+    "tier": "tech",
+    "weight": 24,
+    "link": "https://redis.io",
+    "logo": "https://www.google.com/s2/favicons?domain=redis.io&sz=128",
+    "left": 162.7,
+    "top": 72.8,
+    "size": 43.1
   },
   {
-    id: 'wooc',
-    name: 'WooCommerce',
-    tier: 'tech',
-    link: 'https://woocommerce.com',
-    left: 154.5,
-    top: 383.1,
-    size: 34,
-    logo: 'https://www.google.com/s2/favicons?domain=woocommerce.com&sz=128',
+    "id": "azure",
+    "name": "Microsoft Azure",
+    "tier": "tech",
+    "weight": 22,
+    "link": "https://azure.microsoft.com",
+    "logo": "https://www.google.com/s2/favicons?domain=azure.microsoft.com&sz=128",
+    "left": 391.7,
+    "top": 90.8,
+    "size": 39.9
   },
+  {
+    "id": "docker",
+    "name": "Docker",
+    "tier": "tech",
+    "weight": 22,
+    "link": "https://docker.com",
+    "logo": "https://www.google.com/s2/favicons?domain=docker.com&sz=128",
+    "left": 463.3,
+    "top": 387.9,
+    "size": 39.9
+  },
+  {
+    "id": "k8s",
+    "name": "Kubernetes",
+    "tier": "tech",
+    "weight": 22,
+    "link": "https://kubernetes.io",
+    "logo": "https://www.google.com/s2/favicons?domain=kubernetes.io&sz=128",
+    "left": 144.1,
+    "top": 468.5,
+    "size": 39.9
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "tier": "tech",
+    "weight": 22,
+    "link": "https://supabase.com",
+    "logo": "https://www.google.com/s2/favicons?domain=supabase.com&sz=128",
+    "left": 413.7,
+    "top": 450.6,
+    "size": 39.9
+  },
+  {
+    "id": "clickhouse",
+    "name": "ClickHouse",
+    "tier": "tech",
+    "weight": 22,
+    "link": "https://clickhouse.com",
+    "logo": "https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128",
+    "left": 504.7,
+    "top": 268.7,
+    "size": 39.9
+  },
+  {
+    "id": "tailwind",
+    "name": "Tailwind CSS",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://tailwindcss.com",
+    "logo": "https://www.google.com/s2/favicons?domain=tailwindcss.com&sz=128",
+    "left": 116.3,
+    "top": 102.1,
+    "size": 36.6
+  },
+  {
+    "id": "vite",
+    "name": "Vite",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://vite.dev",
+    "logo": "https://www.google.com/s2/favicons?domain=vite.dev&sz=128",
+    "left": 440.6,
+    "top": 123.4,
+    "size": 36.6
+  },
+  {
+    "id": "ts",
+    "name": "TypeScript",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://typescriptlang.org",
+    "logo": "https://www.google.com/s2/favicons?domain=typescriptlang.org&sz=128",
+    "left": 100.2,
+    "top": 440.8,
+    "size": 36.6
+  },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://github.com",
+    "logo": "https://www.google.com/s2/favicons?domain=github.com&sz=128",
+    "left": 125.1,
+    "top": 63.5,
+    "size": 36.6
+  },
+  {
+    "id": "solr",
+    "name": "Apache Solr",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://solr.apache.org",
+    "logo": "https://www.google.com/s2/favicons?domain=solr.apache.org&sz=128",
+    "left": 433.7,
+    "top": 84.5,
+    "size": 36.6
+  },
+  {
+    "id": "postgres",
+    "name": "PostgreSQL",
+    "tier": "tech",
+    "weight": 20,
+    "link": "https://postgresql.org",
+    "logo": "https://www.google.com/s2/favicons?domain=postgresql.org&sz=128",
+    "left": 247.2,
+    "top": 520.1,
+    "size": 36.6
+  }
 ]
 
-const executiveItems = circles.filter(c => c.tier === 'executive')
-const enterpriseItems = circles.filter(c => c.tier === 'enterprise')
-const foundationalItems = circles.filter(c => c.tier === 'foundational')
-const ecosystemItems = circles.filter(c => c.tier === 'ecosystem')
-const techItems = circles.filter(c => c.tier === 'tech')
+const clientItems = computed(() => circles.filter(c => c.tier === 'client'))
+const employerItems = computed(() => circles.filter(c => c.tier === 'employer'))
+const ecosystemItems = computed(() => circles.filter(c => c.tier === 'ecosystem'))
+const techItems = computed(() => circles.filter(c => c.tier === 'tech'))
+
+const activeItem = computed(() => circles.find(c => c.id === hoveredId.value) || null)
 </script>
 
 <template>
@@ -374,7 +600,7 @@ const techItems = circles.filter(c => c.tier === 'tech')
         :class="mode === 'circles' ? 'op100 font-semibold underline underline-offset-4' : 'op50 hover:op80'"
         @click="mode = 'circles'"
       >
-        Sponsor Circles
+        Interactive Circles
       </button>
       <span op25>|</span>
       <button
@@ -383,13 +609,13 @@ const techItems = circles.filter(c => c.tier === 'tech')
         :class="mode === 'tiers' ? 'op100 font-semibold underline underline-offset-4' : 'op50 hover:op80'"
         @click="mode = 'tiers'"
       >
-        Sponsor Tiers
+        Structured Categories
       </button>
     </div>
 
     <!-- Mode 1: Circles (Circle Packing Dome) -->
-    <div v-show="mode === 'circles'" flex="~ justify-center" w-full class="min-h-[530px] overflow-visible my-4">
-      <div class="relative w-[500px] h-[500px] max-w-full mx-auto group shrink-0 transform scale-75 sm:scale-90 md:scale-100 origin-center transition-transform duration-300">
+    <div v-show="mode === 'circles'" flex="~ col items-center" w-full class="min-h-[640px] overflow-visible my-4">
+      <div class="relative w-[560px] h-[560px] max-w-full mx-auto group shrink-0 transform scale-65 sm:scale-80 md:scale-95 lg:scale-100 origin-center transition-transform duration-300">
         <component
           :is="item.link ? (item.link.startsWith('http') ? 'a' : 'RouterLink') : 'div'"
           v-for="item in circles"
@@ -399,11 +625,15 @@ const techItems = circles.filter(c => c.tier === 'tech')
             height: `${item.size}px`,
             left: `${item.left}px`,
             top: `${item.top}px`,
-            zIndex: hoveredId === item.id ? 60 : (item.tier === 'executive' ? 10 : 2),
+            zIndex: hoveredId === item.id ? 60 : (item.tier === 'client' || item.tier === 'employer' ? 10 : 2),
           }"
-          class="transition-all duration-500 rounded-1/2 overflow-hidden absolute hover:shadow-2xl hover:rounded-xl hover:scale-125 border border-base bg-white dark:bg-zinc-900 flex items-center justify-center cursor-pointer p-2"
+          class="transition-all duration-300 rounded-full overflow-hidden absolute hover:shadow-2xl hover:scale-120 border border-base bg-white dark:bg-zinc-900 flex items-center justify-center cursor-pointer p-2.5 hover:border-zinc-400 dark:hover:border-zinc-500"
           v-bind="item.link ? (item.link.startsWith('http') ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : { to: item.link }) : {}"
-          :title="item.name"
+          v-tooltip="{
+            content: `${item.name}${item.role ? ` · ${item.role}` : ''}`,
+            placement: 'top',
+            distance: 8,
+          }"
           @mouseenter="hoveredId = item.id"
           @mouseleave="hoveredId = null"
         >
@@ -415,35 +645,64 @@ const techItems = circles.filter(c => c.tier === 'tech')
           >
         </component>
       </div>
+
+      <!-- Live Hover Detail Bar -->
+      <div class="min-h-12 mt-4 flex items-center justify-center">
+        <transition name="fade" mode="out-in">
+          <div
+            v-if="activeItem"
+            :key="activeItem.id"
+            class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-zinc-200/90 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-sm"
+          >
+            <img :src="activeItem.logo" :alt="activeItem.name" class="w-6 h-6 object-contain rounded-full shrink-0">
+            <div class="text-xs sm:text-sm flex flex-wrap items-center gap-1.5 leading-none">
+              <span class="font-semibold text-zinc-900 dark:text-zinc-100">{{ activeItem.name }}</span>
+              <span v-if="activeItem.role" class="text-zinc-400 dark:text-zinc-500">·</span>
+              <span v-if="activeItem.role" class="text-zinc-600 dark:text-zinc-300 font-medium">{{ activeItem.role }}</span>
+              <span v-if="activeItem.timeline" class="font-mono text-[11px] text-zinc-400 dark:text-zinc-500">({{ activeItem.timeline }})</span>
+            </div>
+          </div>
+          <div
+            v-else
+            key="placeholder"
+            class="text-xs text-zinc-400/70 dark:text-zinc-500/70 font-mono tracking-wide px-4 py-2"
+          >
+            Hover over any partner or client to view details
+          </div>
+        </transition>
+      </div>
     </div>
 
-    <!-- Mode 2: Tiers (Structured Cards View) -->
+    <!-- Mode 2: Tiers (Structured Categories View) -->
     <div v-show="mode === 'tiers'" class="max-w-260 mx-auto py-4 text-left">
-      <!-- Section: Executive & Flagship -->
-      <div class="mb-12">
+      <!-- Section 1: Enterprise Clients & Accounts -->
+      <div class="mb-14">
         <div select-none relative h18 mt2 pointer-events-none>
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>EXECUTIVE</span>
+          <span text-4.5em sm:text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>CLIENTS</span>
+        </div>
+        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+          Enterprise Clients, Banking &amp; Aviation Platforms
         </div>
         <div class="flex flex-col gap-4 mt-2">
           <component
             :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
-            v-for="item in executiveItems"
+            v-for="item in clientItems"
             :key="item.id"
-            class="p-4 sm:p-5 rounded-xl border border-base hover:bg-[#8888880e] transition-all flex flex-col sm:flex-row sm:items-start gap-4 no-underline!"
+            class="p-4 sm:p-5 rounded-xl border border-base hover:bg-[#8888880e] transition-all flex items-start gap-4 no-underline!"
             v-bind="item.link.startsWith('http') ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : { to: item.link }"
           >
-            <div class="w-16 h-16 shrink-0 rounded-xl border border-base bg-white dark:bg-zinc-900 p-2 flex items-center justify-center">
+            <div class="w-14 h-14 shrink-0 rounded-xl border border-base bg-white dark:bg-zinc-900 p-2 flex items-center justify-center">
               <img :src="item.logo" :alt="item.name" class="w-full h-full object-contain rounded-lg">
             </div>
-            <div class="flex-auto">
+            <div class="flex-auto min-w-0">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div class="text-base font-semibold text-zinc-900 dark:text-zinc-100">{{ item.name }}</div>
-                <span class="text-xs px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono">{{ item.timeline }}</span>
+                <span v-if="item.timeline" class="text-[11px] px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono">{{ item.timeline }}</span>
               </div>
-              <div v-if="item.domain" class="text-xs font-medium text-amber-600 dark:text-amber-400 mt-0.5 font-mono">{{ item.domain }}</div>
-              <p class="text-xs op70 mt-2 leading-relaxed">{{ item.desc }}</p>
-              <div class="flex flex-wrap gap-1.5 mt-3">
-                <span v-for="tag in item.tags" :key="tag" class="text-[11px] px-2 py-0.5 rounded bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 font-mono">
+              <div v-if="item.role" class="text-xs font-medium text-amber-600 dark:text-amber-400 mt-0.5 font-mono">{{ item.role }}</div>
+              <p class="text-xs sm:text-sm op70 mt-1.5 leading-relaxed">{{ item.desc }}</p>
+              <div v-if="item.tags" class="flex flex-wrap gap-1.5 mt-2.5">
+                <span v-for="tag in item.tags" :key="tag" class="text-[10.5px] px-2 py-0.2 rounded bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 font-mono">
                   {{ tag }}
                 </span>
               </div>
@@ -452,46 +711,59 @@ const techItems = circles.filter(c => c.tier === 'tech')
         </div>
       </div>
 
-      <!-- Section: Enterprise Systems -->
-      <div class="mb-12">
+      <!-- Section 2: Organizations & Leadership -->
+      <div class="mb-14">
         <div select-none relative h18 mt2 pointer-events-none>
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>ENTERPRISE</span>
+          <span text-4.5em sm:text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>LEADERSHIP</span>
         </div>
-        <div grid="~ cols-1 md:cols-2 gap-4" class="mt-2">
+        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+          Organizations &amp; Engineering Roles
+        </div>
+        <div class="flex flex-col gap-4 mt-2">
           <component
             :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
-            v-for="item in enterpriseItems"
+            v-for="item in employerItems"
             :key="item.id"
-            class="p-4 rounded-xl border border-base hover:bg-[#8888880e] transition-all flex items-start gap-3.5 no-underline!"
+            class="p-4 sm:p-5 rounded-xl border border-base hover:bg-[#8888880e] transition-all flex items-start gap-4 no-underline!"
             v-bind="item.link.startsWith('http') ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : { to: item.link }"
           >
-            <div class="w-12 h-12 shrink-0 rounded-lg border border-base bg-white dark:bg-zinc-900 p-1.5 flex items-center justify-center">
-              <img :src="item.logo" :alt="item.name" class="w-full h-full object-contain rounded-md">
+            <div class="w-14 h-14 shrink-0 rounded-xl border border-base bg-white dark:bg-zinc-900 p-2 flex items-center justify-center">
+              <img :src="item.logo" :alt="item.name" class="w-full h-full object-contain rounded-lg">
             </div>
             <div class="flex-auto min-w-0">
-              <div class="text-sm font-semibold text-zinc-900 dark:text-zinc-100 truncate">{{ item.name }}</div>
-              <div v-if="item.domain" class="text-xs text-blue-600 dark:text-blue-400 mt-0.5 font-mono truncate">{{ item.domain }}</div>
-              <div class="text-[11px] op50 font-mono mt-0.5">{{ item.timeline }}</div>
-              <p class="text-xs op70 mt-1.5 line-clamp-2 leading-relaxed">{{ item.desc }}</p>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="text-base font-semibold text-zinc-900 dark:text-zinc-100">{{ item.name }}</div>
+                <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 font-mono">{{ item.timeline }}</span>
+              </div>
+              <div v-if="item.role" class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mt-0.5 font-mono">{{ item.role }}</div>
+              <p class="text-xs sm:text-sm op70 mt-1.5 leading-relaxed">{{ item.desc }}</p>
+              <div v-if="item.tags" class="flex flex-wrap gap-1.5 mt-2.5">
+                <span v-for="tag in item.tags" :key="tag" class="text-[10.5px] px-2 py-0.2 rounded bg-zinc-100/80 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 font-mono">
+                  {{ tag }}
+                </span>
+              </div>
             </div>
           </component>
         </div>
       </div>
 
-      <!-- Section: Foundational Career & Open Source -->
-      <div class="mb-12">
+      <!-- Section 3: Open Source Tooling Ecosystem -->
+      <div class="mb-14">
         <div select-none relative h18 mt2 pointer-events-none>
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>ECOSYSTEM</span>
+          <span text-4.5em sm:text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>ECOSYSTEM</span>
         </div>
-        <div grid="~ cols-1 sm:cols-2 md:cols-3 gap-3.5" class="mt-2">
+        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+          Open-Source Tooling &amp; Infrastructure
+        </div>
+        <div grid="~ cols-1 sm:cols-2 md:cols-4 gap-3.5" class="mt-2">
           <component
             :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
-            v-for="item in [...foundationalItems, ...ecosystemItems]"
+            v-for="item in ecosystemItems"
             :key="item.id"
-            class="p-3 rounded-lg border border-base hover:bg-[#8888880e] transition-all flex items-center gap-3 no-underline!"
+            class="p-3.5 rounded-lg border border-base hover:bg-[#8888880e] transition-all flex items-center gap-3 no-underline!"
             v-bind="item.link.startsWith('http') ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : { to: item.link }"
           >
-            <div class="w-9 h-9 shrink-0 rounded-md border border-base bg-white dark:bg-zinc-900 p-1 flex items-center justify-center">
+            <div class="w-10 h-10 shrink-0 rounded-md border border-base bg-white dark:bg-zinc-900 p-1 flex items-center justify-center">
               <img :src="item.logo" :alt="item.name" class="w-full h-full object-contain rounded-sm">
             </div>
             <div class="flex-auto min-w-0">
@@ -502,10 +774,13 @@ const techItems = circles.filter(c => c.tier === 'tech')
         </div>
       </div>
 
-      <!-- Section: Core Technologies -->
+      <!-- Section 4: Core Technologies -->
       <div class="mb-8">
         <div select-none relative h18 mt2 pointer-events-none>
-          <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>TECHNOLOGIES</span>
+          <span text-4.5em sm:text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>TECHNOLOGIES</span>
+        </div>
+        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-3 tracking-wide uppercase">
+          Core Languages, Frameworks &amp; Cloud Runtimes
         </div>
         <div class="flex flex-wrap gap-2 mt-2">
           <a

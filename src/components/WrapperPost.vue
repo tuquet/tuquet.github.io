@@ -77,7 +77,7 @@ onMounted(() => {
 const ArtComponent = computed(() => {
   let art = frontmatter.art
   if (art === 'random')
-    art = Math.random() > 0.5 ? 'plum' : 'dots'
+    art = 'plum'
   if (typeof window !== 'undefined') {
     if (art === 'plum')
       return defineAsyncComponent(() => import('./ArtPlum.vue'))
@@ -102,10 +102,12 @@ const ArtComponent = computed(() => {
       {{ frontmatter.display ?? frontmatter.title }}
     </h1>
     <p
-      v-if="frontmatter.date"
+      v-if="frontmatter.date || frontmatter.updated"
       class="opacity-50 !-mt-6 slide-enter-50"
     >
-      {{ formatDate(frontmatter.date, false) }} <span v-if="frontmatter.duration">· {{ frontmatter.duration }}</span>
+      <span v-if="frontmatter.updated">Last updated: {{ typeof frontmatter.updated === 'string' ? frontmatter.updated : formatDate(frontmatter.date, false) }}</span>
+      <span v-else>{{ formatDate(frontmatter.date, false) }}</span>
+      <span v-if="frontmatter.duration"> · {{ frontmatter.duration }}</span>
     </p>
     <p v-if="frontmatter.place" class="mt--4!">
       <span op50>at </span>

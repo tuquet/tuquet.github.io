@@ -205,7 +205,11 @@ onUnmounted(() => {
       aria-label="Ask Tu Quet"
       @click="toggleOpen"
     >
-      <div class="i-carbon-bot text-sm text-zinc-400 dark:text-zinc-600" />
+      <img
+        src="https://avatars.githubusercontent.com/u/20990824?v=4"
+        alt="Tu Quet"
+        class="w-4.5 h-4.5 rounded-full object-cover"
+      >
       <span>Ask Tu Quet</span>
       <span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-zinc-800 text-zinc-300 dark:bg-zinc-200 dark:text-zinc-800">AI</span>
     </button>
@@ -223,9 +227,11 @@ onUnmounted(() => {
       <!-- Dialog Header -->
       <div class="shrink-0 flex items-center justify-between px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-zinc-200/80 dark:bg-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200">
-            <div class="i-carbon-bot text-lg" />
-          </div>
+          <img
+            src="https://avatars.githubusercontent.com/u/20990824?v=4"
+            alt="Tu Quet"
+            class="w-8 h-8 rounded-full object-cover border border-zinc-200 dark:border-zinc-800"
+          >
           <div>
             <div class="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight flex items-center gap-1.5">
               <span>Tu Quet AI</span>

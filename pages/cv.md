@@ -1,23 +1,27 @@
 ---
 title: Nguyen Dinh Tu - Curriculum Vitae
-display: ""
+display: Curriculum Vitae
+subtitle: Technical Project Lead & Senior Software Engineer
 description: Technical Project Lead & Senior Software Engineer specializing in distributed systems, real-time telemetry streaming, high-scale web applications, and AI-augmented workflows.
 image: https://avatars.githubusercontent.com/u/20990824?v=4
 lang: en
+date: 2026-10-02
+updated: 'October 2026'
+art: plum
+class: 'cv-page'
+wrapperClass: 'max-w-5xl'
 ---
 
-<CvHeader />
-
-<div align="center">
+<div class="mb-6">
 	<strong class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">Nguyen Dinh Tu</strong><br/>
 	<span class="profile-nickname text-sm text-zinc-500 dark:text-zinc-400">Nickname: Tu Quet</span><br/>
-	<em class="text-zinc-700 dark:text-zinc-300">Technical Lead | Senior Software Engineer | Product-Minded Technologist</em><br/>
 	<br/>
 	<strong>Phone:</strong> +84 936 683 088 &nbsp;|&nbsp; <strong>Email:</strong> tunyk.93@gmail.com &nbsp;|&nbsp; <strong>Location:</strong> Ha Dong, Ha Noi, Vietnam<br/>
-	<strong>GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">https://github.com/tuquet</a> &nbsp;|&nbsp; <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">https://www.linkedin.com/in/tuquet</a> &nbsp;|&nbsp; <strong>NPM:</strong> <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener">https://www.npmjs.com/org/tuquet</a>
+	<strong>Website:</strong> <a href="https://tuquet.github.io/" target="_blank" rel="noopener">https://tuquet.github.io/</a> &nbsp;|&nbsp; <strong>GitHub:</strong> <a href="https://github.com/tuquet" target="_blank" rel="noopener">https://github.com/tuquet</a><br/>
+	<strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tuquet" target="_blank" rel="noopener">https://www.linkedin.com/in/tuquet</a> &nbsp;|&nbsp; <strong>NPM:</strong> <a href="https://www.npmjs.com/org/tuquet" target="_blank" rel="noopener">https://www.npmjs.com/org/tuquet</a>
 </div>
 
-<p align="center"><em>Technical Lead & Senior Software Engineer with a <strong>Product-first mindset</strong>, specialized in <strong>distributed backend systems</strong>, <strong>high-scale web applications</strong>, and <strong>optimizing engineering productivity</strong> through <strong>AI-augmented workflows (MCP, LLMs)</strong>.</em></p>
+<p><em>Technical Lead & Senior Software Engineer with a <strong>Product-first mindset</strong>, specialized in <strong>distributed backend systems</strong>, <strong>high-scale web applications</strong>, and <strong>optimizing engineering productivity</strong> through <strong>AI-augmented workflows (MCP, LLMs)</strong>.</em></p>
 
 ## CAREER SUMMARY
 
@@ -189,3 +193,9 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Focus:** Full-Stack Web Development, Desktop Application Design & Software Architecture.
 - **Academic Standing:** GPA 8.2/10
 - **English Proficiency:** TOEIC 650 (Fluent technical reading/writing & professional collaboration)
+
+<style>
+.cv-page .prose {
+  max-width: 64rem;
+}
+</style>
