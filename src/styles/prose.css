@@ -182,6 +182,9 @@
   content: none;
 }
 .prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
   width: 100%;
   table-layout: auto;
   text-align: left;
