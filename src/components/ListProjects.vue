@@ -25,7 +25,7 @@ function slug(name: string) {
           GitHub
         </a>
         <a
-          href="https://github.com/tuquet?tab=repositories"
+          href="https://github.com/tuquet/releases"
           target="_blank"
           class="group btn-amber inline-block"
         >
