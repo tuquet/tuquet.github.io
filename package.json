@@ -24,7 +24,6 @@
     "vue-router-better-scroller": "catalog:frontend"
   },
   "devDependencies": {
-    "@antfu/utils": "catalog:frontend",
     "@iconify/json": "catalog:dev",
     "@shikijs/markdown-exit": "catalog:build",
     "@shikijs/transformers": "catalog:build",

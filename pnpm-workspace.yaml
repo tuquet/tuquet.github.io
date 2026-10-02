@@ -40,7 +40,6 @@ catalogs:
     vite-ssg: ^28.3.0
     vite-svg-loader: ^5.1.1
   dev:
-    '@antfu/eslint-config': ^9.3.0
     '@iconify/json': ^2.2.520
     '@octokit/core': ^7.0.7
     '@octokit/rest': ^22.0.1
@@ -66,7 +65,6 @@ catalogs:
     tsx: ^4.23.12
     typescript: ~6.0.3
   frontend:
-    '@antfu/utils': ^9.3.0
     '@shikijs/magic-move': ^4.4.3
     '@unhead/vue': ^3.4.0
     '@unocss/reset': ^66.8.1
