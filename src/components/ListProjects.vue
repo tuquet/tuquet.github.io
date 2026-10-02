@@ -36,14 +36,14 @@ function slug(name: string) {
           Recent Releases
         </a>
         <RouterLink
-          to="/cv"
+          to="/yakmap"
           class="group btn-lime inline-block"
         >
           <div
-            i-ph-user-duotone
-            group-hover="i-ph-user-fill text-lime"
+            i-ph-cow-duotone
+            group-hover="i-ph-cow-duotone-fill text-lime"
           />
-          Curriculum Vitae
+          Yak Map
         </RouterLink>
       </div>
       <hr>
