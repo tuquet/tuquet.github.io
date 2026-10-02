@@ -1,17 +1,17 @@
-# Dependencies
-node_modules/
-
-# Temporary and intermediate build artifacts
-*_tmp.html
-README.html
-**/README.html
-
-# Images
-*.png
-*.jpg
-*.jpeg
-
-# Stylesheets (keep custom export styling and web enhancements)
-*.css
-!style/pdf-export.css
-!web/*.css
+node_modules
+.DS_Store
+dist
+*.local
+.idea
+.presite
+dist-ssr
+.vite-ssg-temp
+components.d.ts
+auto-imports.d.ts
+typed-router.d.ts
+temp
+sponsors.*
+drafts
+*.log
+src/data/sponsors-circles.json
+public/assets/fonts
