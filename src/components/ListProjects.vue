@@ -12,38 +12,38 @@ function slug(name: string) {
       Projects that I created or maintaining.
     </p>
     <div class="prose pb5 mx-auto mt10 text-center">
-      <div flex="~ gap-2 justify-center wrap">
+      <div flex="~ gap-2 justify-center">
         <a
           href="https://github.com/tuquet"
           target="_blank"
-          class="group btn-blue inline-block text-xs sm:text-sm py-1 px-2.5"
+          class="group btn-blue inline-block"
         >
           <div
             i-ph-github-logo-duotone
             group-hover="i-ph-github-logo-fill text-blue"
           />
-          GitHub Organization
+          GitHub
         </a>
         <RouterLink
           to="/cv"
-          class="group btn-amber inline-block text-xs sm:text-sm py-1 px-2.5"
+          class="group btn-amber inline-block"
         >
           <div
             i-ph-user-duotone
             group-hover="i-ph-user-fill text-amber"
           />
-          Interactive CV
+          Curriculum Vitae
         </RouterLink>
         <a
           href="https://tuquet.github.io/automa"
           target="_blank"
-          class="group btn-lime inline-block text-xs sm:text-sm py-1 px-2.5"
+          class="group btn-lime inline-block"
         >
           <div
             i-ph-lightning-duotone
             group-hover="i-ph-lightning-fill text-lime"
           />
-          Automa Platform
+          Automa
         </a>
       </div>
       <hr>
@@ -54,23 +54,23 @@ function slug(name: string) {
     >
       <div
         :id="slug(key)"
-        select-none relative h14 sm:h18 mt5 pointer-events-none slide-enter overflow-hidden
+        select-none relative h18 mt5 pointer-events-none slide-enter
         :style="{
           '--enter-stage': cidx - 2,
           '--enter-step': '60ms',
         }"
       >
-        <span text-3.2em sm:text-5em color-transparent absolute left--0.5rem sm:left--1rem top-0rem font-bold leading-1em text-stroke-1 text-stroke-hex-aaa op35 dark:op20 whitespace-nowrap>{{ key }}</span>
+        <span text-5em color-transparent absolute left--1rem top-0rem font-bold leading-1em text-stroke-1.5 text-stroke-hex-aaa op35 dark:op20>{{ key }}</span>
       </div>
       <div
-        class="project-grid py-2 w-full max-w-500 mx-auto"
+        class="project-grid py-2 max-w-500 w-max mx-auto"
         grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
       >
         <component
           :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
           v-for="item, idx in (projects || {})[key]"
           :key="idx"
-          class="item relative flex items-center group"
+          class="item relative flex items-center"
           v-bind="item.link.startsWith('http') ? {
             href: item.link,
             target: '_blank',
@@ -80,9 +80,9 @@ function slug(name: string) {
           }"
           :title="item.name"
         >
-          <div v-if="item.icon" class="pt-2 pr-5 flex-shrink-0 flex items-center justify-center">
+          <div v-if="item.icon" class="pt-2 pr-5">
             <div
-              class="text-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-200"
+              class="text-3xl opacity-50"
               :class="item.icon || 'i-carbon-unknown'"
             />
           </div>
@@ -114,24 +114,13 @@ function slug(name: string) {
 </template>
 
 <style scoped>
-.project-grid {
-  width: 100%;
-}
-
 .project-grid .item {
   background: transparent;
   font-size: 1.1rem;
-  width: 100%;
+  width: 350px;
   max-width: 100%;
   padding: 0.5rem 0.875rem 0.875rem;
   border-radius: 6px;
-  box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-  .project-grid .item {
-    width: 350px;
-  }
 }
 
 .project-grid .item:hover {

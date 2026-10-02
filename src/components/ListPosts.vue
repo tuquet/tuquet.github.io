@@ -58,13 +58,13 @@ function getGroupName(p: Post) {
     <template v-for="(route, idx) in posts" :key="route.path">
       <div
         v-if="!isSameGroup(route, posts[idx - 1])"
-        select-none relative h16 sm:h20 pointer-events-none slide-enter overflow-hidden
+        select-none relative h20 pointer-events-none slide-enter
         :style="{
           '--enter-stage': idx - 2,
           '--enter-step': '60ms',
         }"
       >
-        <span text-5em sm:text-8em color-transparent absolute left--0.5rem sm:left--3rem top--1rem sm:top--2rem font-bold text-stroke-1.5 sm:text-stroke-2 text-stroke-hex-aaa op10 whitespace-nowrap>{{ getGroupName(route) }}</span>
+        <span text-8em color-transparent absolute left--3rem top--2rem font-bold text-stroke-2 text-stroke-hex-aaa op10>{{ getGroupName(route) }}</span>
       </div>
       <div
         class="slide-enter"
@@ -87,17 +87,17 @@ function getGroupName(p: Post) {
           class="item block font-normal mb-6 mt-2 no-underline"
         >
           <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
-            <div class="title text-lg leading-1.2em" flex="~ gap-2 items-center">
+            <div class="title text-lg leading-1.2em" flex="~ gap-2">
               <span
                 v-if="route.lang === 'vi'"
                 align-middle flex-none
-                class="text-xs bg-zinc:15 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded px-1.5 py-0.5 my-auto"
+                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 ml--15 mr2 my-auto hidden md:block"
               >Tiếng Việt</span>
               <span align-middle>{{ route.title }}</span>
               <span
                 v-if="route.redirect"
                 align-middle op50 flex-none text-xs ml--1.5
-                class="i-carbon-arrow-up-right"
+                i-carbon-arrow-up-right
                 title="External"
               />
             </div>
@@ -107,6 +107,11 @@ function getGroupName(p: Post) {
                 {{ formatDate(route.date, true) }}
               </span>
               <span v-if="route.duration" text-sm op40 ws-nowrap>· {{ route.duration }}</span>
+              <span
+                v-if="route.lang === 'vi'"
+                align-middle flex-none
+                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+              >Tiếng Việt</span>
             </div>
           </li>
         </component>

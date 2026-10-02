@@ -75,7 +75,7 @@ onKeyStroke('Escape', (e) => {
 
 <template>
   <NavBar />
-  <main class="px-4 sm:px-6 md:px-7 py-6 sm:py-10 of-x-hidden">
+  <main class="px-7 py-10 of-x-hidden">
     <RouterView />
     <Footer :key="route.path" />
   </main>
@@ -88,5 +88,4 @@ onKeyStroke('Escape', (e) => {
       </div>
     </div>
   </Transition>
-  <PortfolioCopilot />
 </template>

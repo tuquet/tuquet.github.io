@@ -1,4 +1,7 @@
 import {
+  createLocalFontProcessor,
+} from '@unocss/preset-web-fonts/local'
+import {
   defineConfig,
   presetAttributify,
   presetIcons,
@@ -34,10 +37,12 @@ export default defineConfig({
     presetWind3(),
     presetWebFonts({
       fonts: {
-        sans: 'Roboto:300,400,500,700',
-        mono: 'DM Mono:400,500',
-        condensed: 'Roboto Condensed:400,700',
+        sans: 'Inter',
+        mono: 'DM Mono',
+        condensed: 'Roboto Condensed',
+        wisper: 'Bad Script',
       },
+      processors: createLocalFontProcessor(),
     }),
   ],
   transformers: [

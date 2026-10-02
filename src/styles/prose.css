@@ -9,8 +9,6 @@
   max-width: var(--prose-max-width);
   font-size: 1rem;
   line-height: 1.75;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
 }
 .prose [class~='lead'] {
   color: #4b5563;
@@ -149,8 +147,6 @@
   border-radius: 0.25rem;
   padding: 0.2em 0.3em;
   margin: -0.2em 0;
-  word-break: break-word;
-  overflow-wrap: break-word;
 }
 .prose a code {
   color: #111827;
@@ -186,10 +182,6 @@
   content: none;
 }
 .prose table {
-  display: block;
-  max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   width: 100%;
   table-layout: auto;
   text-align: left;
@@ -197,7 +189,6 @@
   margin-bottom: 2em;
   font-size: 0.875em;
   line-height: 1.7142857;
-  border-collapse: collapse;
 }
 .prose thead {
   color: var(--fg-deep);
@@ -511,50 +502,4 @@
 }
 .prose-sm > :last-child {
   margin-bottom: 0;
-}
-
-/* Mobile Responsive Refinements */
-@media (max-width: 640px) {
-  .prose h1 {
-    font-size: 1.75rem;
-    line-height: 1.25;
-    margin-bottom: 0.6em;
-  }
-
-  .prose h2 {
-    font-size: 1.35rem;
-    line-height: 1.35;
-    margin-top: 1.5em;
-    margin-bottom: 0.6em;
-  }
-
-  .prose h3 {
-    font-size: 1.15rem;
-    line-height: 1.4;
-    margin-top: 1.25em;
-    margin-bottom: 0.4em;
-  }
-
-  .prose ul > li,
-  .prose ol > li {
-    padding-left: 1.25em;
-  }
-
-  .prose table {
-    font-size: 0.8125rem;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-
-  .prose table th,
-  .prose table td {
-    padding: 0.45rem 0.6rem !important;
-  }
-
-  .prose pre {
-    padding: 0.75rem 0.85rem !important;
-    font-size: 0.8rem;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
 }

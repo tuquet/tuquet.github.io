@@ -15,7 +15,7 @@ const route = useRoute()
       English Only
     </button>
 
-    <div mb-0 flex="~ row gap-2.5 sm:gap-4 wrap" text-xl sm:text-2xl md:text-3xl items-baseline>
+    <div mb-0 flex="~ col gap-1 sm:row sm:gap-3 wrap" text-3xl>
       <RouterLink to="/posts" class="!border-none" :class="route.path === '/posts' ? activeStyle : inactiveStyle">
         Blog
       </RouterLink>
