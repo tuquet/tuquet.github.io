@@ -24,27 +24,27 @@ function slug(name: string) {
           />
           GitHub
         </a>
-        <RouterLink
-          to="/cv"
+        <a
+          href="https://github.com/tuquet?tab=repositories"
+          target="_blank"
           class="group btn-amber inline-block"
         >
           <div
-            i-ph-user-duotone
-            group-hover="i-ph-user-fill text-amber"
+            i-ph-rocket-launch-duotone
+            group-hover="i-ph-rocket-launch-fill text-amber"
           />
-          Curriculum Vitae
-        </RouterLink>
-        <a
-          href="https://tuquet.github.io/automa"
-          target="_blank"
+          Recent Releases
+        </a>
+        <RouterLink
+          to="/cv"
           class="group btn-lime inline-block"
         >
           <div
-            i-ph-lightning-duotone
-            group-hover="i-ph-lightning-fill text-lime"
+            i-ph-user-duotone
+            group-hover="i-ph-user-fill text-lime"
           />
-          Automa
-        </a>
+          Curriculum Vitae
+        </RouterLink>
       </div>
       <hr>
     </div>
