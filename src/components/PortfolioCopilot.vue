@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref } from 'vue'
 
 interface Message {
   role: 'user' | 'bot'
@@ -33,8 +33,8 @@ const messages = ref<Message[]>([
 
 const knowledge = [
   {
-    keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv'],
-    answer: '**Tu Quet\'s Curriculum Vitae (CV / Resume):**\n- **Interactive Online CV:** View the full web version with detailed project breakdowns at [tuquet.github.io/cv](https://tuquet.github.io/cv)\n- **Download PDF Version:** Download the printer-friendly PDF format directly from [/pdf/tuquet_cv.pdf](/pdf/tuquet_cv.pdf)\n- **Open-Source CV Repository:** Markdown source and build scripts at [github.com/tuquet/cv](https://github.com/tuquet/cv)',
+    keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv', 'experience', 'qualifications'],
+    answer: '**Tu Quet\'s Professional Profile & Qualifications:**\n- **Current Role:** Technical Project Lead at CMC Global, directing the real-time EV Telemetry platform for **VinFast** and high-scale visitor web portals for **Lotte Group**.\n- **Past Leadership:** CPO & Tech Lead at ICOMM Tech (enterprise Big Data analytics & multi-channel communications platform leading 15+ engineers).\n- **Core Engineering:** Systems programming in **Rust** (Tokio async, Win32 Job Objects) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js**; real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Engineering Culture:** Clean code advocate, Agile Scrum/Kanban, and AI-augmented SDLC (MCP & LLMs) improving team delivery velocity.\n- **Full Interactive CV:** Explore the complete interactive timeline and project breakdowns at [tuquet.github.io/cv](https://tuquet.github.io/cv).\n- Feel free to ask me specific questions about his **EV telemetry streaming**, **process engine**, or **role fit**!',
   },
   {
     keys: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening'],
@@ -56,8 +56,8 @@ const knowledge = [
     answer: '**Role Fit & Ideal Engagement:**\n- **Technical Project Lead / Tech Lead:** Proven capability managing 15+ engineers across multiple squads, driving architecture roadmaps, technical debt governance, and sprint delivery.\n- **Staff / Principal / Senior Software Engineer:** Deep hands-on mastery of distributed backend systems, Rust async runtimes, Java/Spring Boot services, and complex real-time WebSockets.\n- **Solutions Architect:** Designing resilient cloud and hybrid telemetry architectures, Medallion data pipelines, and enterprise micro-frontends.\n- **Working Culture:** Agile Scrum / Kanban, clean code advocate, mentor, and product-first innovator.',
   },
   {
-    keys: ['telemetry', 'ev', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
-    answer: '**EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (15+ engineers) for a leading automotive tech platform.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
+    keys: ['telemetry', 'ev', 'vinfast', 'vinfastauto', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
+    answer: '**VinFast EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (15+ engineers) delivering the real-time telemetry streaming platform for **VinFast** electric vehicles via CMC Global.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
   },
   {
     keys: ['runner', 'engine', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'win32', 'process'],
@@ -68,8 +68,8 @@ const knowledge = [
     answer: '**Interactive Artifacts & Live Architecture Showcases:**\n- **Automa Architecture Visualizer:** Explore the multi-repo orchestration pipeline rendered with Archify at [tuquet.github.io/automa/pipeline.html](https://tuquet.github.io/automa/pipeline.html)\n- **Core Daemon API Reference:** Interactive Scalar OpenAPI docs for Rust Axum daemons at [tuquet.github.io/automa/api/](https://tuquet.github.io/automa/api/)\n- **Enterprise Storybook Showcase:** Live interactive data grid & UI components at [tuquet.github.io/lib/](https://tuquet.github.io/lib/)\n- **Automa Studio Portal:** Closed-loop automation & OS orchestration hub at [tuquet.github.io/automa/](https://tuquet.github.io/automa/)\n- **Windows Scoop Distribution:** Official Scoop bucket at [github.com/tuquet/scoop-bucket](https://github.com/tuquet/scoop-bucket)',
   },
   {
-    keys: ['portal', 'theme park', 'booking', 'webview', 'hospitality', 'high-scale web', 'high-traffic'],
-    answer: '**High-Scale Web & Booking Portals – Theme Park Enterprise:**\n- Tu Quet served as **Lead Frontend Engineer**, building, refactoring, and delivering feature enhancements for high-traffic Visitor Web Portals and Partner Booking WebViews for a premier international theme park enterprise.\n- Engineered responsive, pixel-perfect mobile-embedded WebViews in React, Vite, and Tailwind CSS adhering strictly to client design specs.\n- Established seamless local developer workflows and mock data synchronization between Spring Boot backend services and React/React Native clients.',
+    keys: ['portal', 'theme park', 'lotte', 'lotte world', 'lotte group', 'booking', 'webview', 'hospitality', 'high-scale web', 'high-traffic'],
+    answer: '**High-Scale Web & Booking Portals – Lotte Group:**\n- Tu Quet served as **Lead Frontend Engineer**, building, refactoring, and delivering feature enhancements for high-traffic Visitor Web Portals and Partner Booking WebViews for **Lotte Group (Lotte World Theme Parks & Hospitality)** via CMC Global.\n- Engineered responsive, pixel-perfect mobile-embedded WebViews in React, Vite, and Tailwind CSS adhering strictly to client design specs.\n- Established seamless local developer workflows and mock data synchronization between Spring Boot backend services and React/React Native clients.',
   },
   {
     keys: ['team', 'squad', 'mentoring', 'management', 'culture', '15+', 'leadership', 'lead'],
@@ -88,7 +88,7 @@ const knowledge = [
 const chips = [
   { label: 'CV / Resume', q: 'Where can I find Tu Quet\'s CV or Resume link?' },
   { label: 'Executive Summary', q: 'Can you provide an executive summary of Tu Quet\'s background?' },
-  { label: 'EV Telemetry', q: 'Tell me about the EV Telemetry & Fleet monitoring platform' },
+  { label: 'VinFast Telemetry', q: 'Tell me about the VinFast EV Telemetry platform' },
   { label: 'Process Engine', q: 'How does his Rust zero-zombie process supervisor work?' },
   { label: 'Contact', q: 'How can I contact Tu Quet for an interview?' },
 ]
@@ -170,6 +170,30 @@ function toggleOpen() {
     })
   }
 }
+
+function handleOpenCopilot(e: Event) {
+  const customEvent = e as CustomEvent<{ query?: string }>
+  isOpen.value = true
+  if (customEvent.detail?.query) {
+    handleSend(customEvent.detail.query)
+  }
+  nextTick(() => {
+    scrollToBottom()
+    inputRef.value?.focus()
+  })
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('open-portfolio-copilot', handleOpenCopilot)
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('open-portfolio-copilot', handleOpenCopilot)
+  }
+})
 </script>
 
 <template>

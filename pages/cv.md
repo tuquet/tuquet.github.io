@@ -45,24 +45,24 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 
 ## PROFESSIONAL EXPERIENCE
 
-| Company | Role | Duration |
-| :--- | :--- | :--- |
-| **CMC Global** | Technical Project Lead | 09/2024 – Present |
-| **ICOMM Tech** | CPO & Tech Lead | 05/2020 – 08/2024 |
-| **OpenCommerce Group** | Senior Software Engineer | 12/2018 – 04/2020 |
-| **TDT Asia** | Full-stack Engineer | 05/2018 – 12/2018 |
-| **Lush Era** | Software Engineer | 12/2016 – 04/2018 |
+| Company | Role | Duration | Key Clients & Scope |
+| :--- | :--- | :--- | :--- |
+| **CMC Global** | Technical Project Lead | 09/2024 – Present | VinFast (EV Telemetry), Lotte Group (Theme Park Portals) |
+| **ICOMM Tech** | CPO & Tech Lead | 05/2020 – 08/2024 | Enterprise Big Data & Multi-Channel Communications |
+| **OpenCommerce Group** | Senior Software Engineer | 12/2018 – 04/2020 | High-Converting E-Commerce Storefronts & Merchant Suite |
+| **TDT Asia** | Full-stack Engineer | 05/2018 – 12/2018 | Japanese Enterprise ERP Portals |
+| **Lush Era** | Software Engineer | 12/2016 – 04/2018 | Real-time Telemedicine & Healthcare Web Application |
 
 ---
 
 ## FEATURED PROJECT LIST
 
-### [09/2024 – Present] High-Scale Web & Booking Portals – Theme Park Enterprise
+### [09/2024 – Present] High-Scale Web & Booking Portals – Lotte Group (Theme Park & Hospitality) <span id="lotte"></span><span id="high-scale-web--booking-portals--lotte-group-theme-park--hospitality"></span>
 - **Timeline**: 09/2024 – Present
 - **Company**: CMC Global
-- **Client**: Multinational Theme Park & Hospitality Enterprise (South Korea)
+- **Client**: Lotte Group (Lotte World, Theme Parks & Hospitality)
 - **Team size**: 15+ engineers
-- **Project description**: High-scale digital ecosystem for premier international amusement parks, encompassing high-traffic web portals & partner booking webviews, real-time attraction wait-time & reservation engines, and digital interactive park navigation.
+- **Project description**: High-scale digital ecosystem for Lotte premier amusement parks and hospitality destinations, encompassing high-traffic web portals & partner booking webviews, real-time attraction wait-time & reservation engines, and digital interactive park navigation.
 - **Responsibilities**:
   - Served as **Lead Frontend Engineer**, steering the architectural refactoring, component modularity, and feature delivery for high-traffic Park Visitor Web Portals and Partner Booking WebViews adhering to client enterprise standards.
   - Implemented responsive Web and mobile-embedded WebView user interfaces using React, Vite, and Tailwind CSS, ensuring UI fidelity with design documentation and smooth interactions.
@@ -73,12 +73,12 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Platform, server and database**: Docker, Redis, MS SQL Server, Linux
 - **Methodology**: Agile Scrum
 
-### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform
+### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform – VinFast <span id="vinfast"></span><span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
 - **Timeline**: 09/2024 – Present
 - **Company**: CMC Global
-- **Client**: Leading Automotive Manufacturer (Automotive Tech, IoT Integration)
+- **Client**: VinFast Auto (Vingroup)
 - **Team size**: 15+ engineers (3 squads)
-- **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of electric vehicles (EVs).
+- **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of VinFast electric vehicles (EVs).
 - **Responsibilities**:
   - Served as **Technical Project Lead**, establishing overall technical architecture, engineering standards, and high-throughput telemetry streaming across 3 squads (15+ engineers) processing millions of daily EV operational events.
   - Architected a **Micro-frontends** architecture and standardized a shared enterprise **Design System**, ensuring visual consistency and decoupled release cycles across squads.
@@ -90,7 +90,7 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Platform, server and database**: Azure Cloud, Docker, Kubernetes, WebSockets, PostgreSQL, Redis
 - **Methodology**: Agile Scrum
 
-### [05/2020 – 08/2024] Big Data Analytics & Interactive Intelligence Platform
+### [05/2020 – 08/2024] Big Data Analytics & Interactive Intelligence Platform <span id="big-data-analytics--interactive-intelligence-platform"></span>
 - **Timeline**: 05/2020 – 08/2024
 - **Company**: ICOMM Tech
 - **Client**: Government, Banking & Aviation Sectors

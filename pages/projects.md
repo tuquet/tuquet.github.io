@@ -56,16 +56,16 @@ projects:
       icon: 'i-carbon-package'
 
   Enterprise & Case Studies:
-    - name: 'EV Telemetry Platform'
-      link: '/cv'
-      desc: 'Real-time telemetry streaming platform for 100k+ smart electric vehicles (CMC Global)'
+    - name: 'VinFast EV Telemetry'
+      link: '/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform'
+      desc: 'Real-time telemetry streaming platform for 100k+ smart electric vehicles (VinFast / CMC Global)'
       icon: 'i-carbon-meter'
-    - name: 'Theme Park Booking Webview'
-      link: '/cv'
-      desc: 'High-traffic consumer booking webview and ticket management platform (CMC Global)'
+    - name: 'Lotte World & Theme Park Portals'
+      link: '/cv#high-scale-web--booking-portals--lotte-group-theme-park--hospitality'
+      desc: 'High-traffic consumer booking webview and ticket management platform (Lotte Group / CMC Global)'
       icon: 'i-carbon-ticket'
     - name: 'Big Data Analytics Dashboard'
-      link: '/cv'
+      link: '/cv#big-data-analytics--interactive-intelligence-platform'
       desc: 'Multi-platform enterprise Big Data extraction and intelligence dashboard (ICOMM Tech)'
       icon: 'i-carbon-analytics'
 ---
