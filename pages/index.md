@@ -1,8 +1,8 @@
 ---
 title: Tu Quet
 description: Tu Quet's Portfolio
-image: https://avatars.githubusercontent.com/u/20990824?v=4
-art: plum
+image: https://tuquet.github.io/og.png
+art: random
 ---
 
 Hey! I'm Tu Quet, a passionate systems architect and software engineer.

@@ -87,7 +87,12 @@ function getGroupName(p: Post) {
           class="item block font-normal mb-6 mt-2 no-underline"
         >
           <li class="no-underline" flex="~ col md:row gap-2 md:items-center">
-            <div class="title text-lg leading-1.2em" flex="~ gap-2">
+            <div class="title text-lg leading-1.2em" flex="~ gap-2 items-center">
+              <span
+                v-if="route.lang === 'vi'"
+                align-middle flex-none
+                class="text-xs bg-zinc:15 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded px-1.5 py-0.5 my-auto"
+              >Tiếng Việt</span>
               <span align-middle>{{ route.title }}</span>
               <span
                 v-if="route.redirect"

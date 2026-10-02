@@ -70,7 +70,7 @@ function slug(name: string) {
           :is="item.link.startsWith('http') ? 'a' : 'RouterLink'"
           v-for="item, idx in (projects || {})[key]"
           :key="idx"
-          class="item relative flex items-center"
+          class="item relative flex items-center group"
           v-bind="item.link.startsWith('http') ? {
             href: item.link,
             target: '_blank',
@@ -81,15 +81,8 @@ function slug(name: string) {
           :title="item.name"
         >
           <div v-if="item.icon" class="pt-2 pr-5 flex-shrink-0 flex items-center justify-center">
-            <img
-              v-if="item.icon.startsWith('/') || item.icon.endsWith('.svg') || item.icon.endsWith('.png')"
-              :src="item.icon"
-              class="w-9 h-9 min-w-9 min-h-9 rounded-lg object-contain shadow-xs transition-transform duration-200 group-hover:scale-105"
-              :alt="item.name"
-            />
             <div
-              v-else
-              class="text-3xl opacity-50"
+              class="text-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-200"
               :class="item.icon || 'i-carbon-unknown'"
             />
           </div>
@@ -121,7 +114,7 @@ function slug(name: string) {
 </template>
 
 <style scoped>
-.project-grid a.item {
+.project-grid .item {
   background: transparent;
   font-size: 1.1rem;
   width: 350px;
@@ -130,7 +123,7 @@ function slug(name: string) {
   border-radius: 6px;
 }
 
-.project-grid a.item:hover {
+.project-grid .item:hover {
   background: #88888811;
 }
 </style>

@@ -102,4 +102,6 @@ allowBuilds:
   sharp: true
   simple-git-hooks: true
 catalog:
+  '@types/d3-hierarchy': ^3.1.7
+  d3-hierarchy: ^3.1.2
   opentype.js: ^2.0.0

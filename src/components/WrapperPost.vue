@@ -13,8 +13,8 @@ const route = useRoute()
 const content = ref<HTMLDivElement>()
 
 const base = 'https://tuquet.github.io'
+const facebookUrl = 'https://fb.com/quet.jr'
 const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @tuquet's ${base}${route.path}\n\nI think...`)}`)
-const blueskyUrl = computed(() => `https://bsky.app/intent/compose?text=${encodeURIComponent(`Reading @tuquet ${base}${route.path}\n\nI think...`)}`)
 
 onMounted(() => {
   const navigate = () => {
@@ -77,10 +77,12 @@ onMounted(() => {
 const ArtComponent = computed(() => {
   let art = frontmatter.art
   if (art === 'random')
-    art = 'plum'
+    art = Math.random() > 0.5 ? 'plum' : 'dots'
   if (typeof window !== 'undefined') {
     if (art === 'plum')
       return defineAsyncComponent(() => import('./ArtPlum.vue'))
+    else if (art === 'dots')
+      return defineAsyncComponent(() => import('./ArtDots.vue'))
   }
   return undefined
 })
@@ -137,10 +139,8 @@ const ArtComponent = computed(() => {
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
     <template v-if="frontmatter.duration">
       <span font-mono op50>> </span>
-      <span op50>comment on </span>
-      <a :href="blueskyUrl" target="_blank" op50>bluesky</a>
-      <span op25> / </span>
-      <a :href="elkUrl" target="_blank" op50>mastodon</a>
+      <span op50>discuss on </span>
+      <a :href="facebookUrl" target="_blank" op50>facebook</a>
       <span op25> / </span>
       <a :href="tweetUrl" target="_blank" op50>twitter</a>
     </template>

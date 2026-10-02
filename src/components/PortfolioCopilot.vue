@@ -21,7 +21,7 @@ function getTimeGreeting() {
 
 const welcomeGreeting = computed(() => {
   const g = getTimeGreeting()
-  return `**${g}** I am Tu Quet's portfolio AI assistant. Ask any question regarding his 8+ years leading distributed systems, systems architecture, or role suitability.\n\n**Topics you can explore:**\n- **Executive Summary:** Core strengths & leadership overview\n- **Role Fit Check:** Suitability for Tech Lead, Architect, or Senior Engineer\n- **EV Telemetry Platform:** 15+ engineers, telemetry streaming\n- **High-Scale Web & Booking:** High-traffic visitor & partner booking webviews\n- **Tuquet Engine:** Zero-leakage process supervision in Rust\n- **Tech Stack & Contact:** Direct interview scheduling`
+  return `**${g}** I am Tu Quet's portfolio AI assistant. How can I help you explore his systems architecture, engineering leadership, or background today?`
 })
 
 const messages = ref<Message[]>([
@@ -32,6 +32,10 @@ const messages = ref<Message[]>([
 ])
 
 const knowledge = [
+  {
+    keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv'],
+    answer: '**Tu Quet\'s Curriculum Vitae (CV / Resume):**\n- **Interactive Online CV:** View the full web version with detailed project breakdowns at [tuquet.github.io/cv](https://tuquet.github.io/cv)\n- **Download PDF Version:** Download the printer-friendly PDF format directly from [/pdf/tuquet_cv.pdf](/pdf/tuquet_cv.pdf)\n- **Open-Source CV Repository:** Markdown source and build scripts at [github.com/tuquet/cv](https://github.com/tuquet/cv)',
+  },
   {
     keys: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening'],
     answer: () => {
@@ -44,56 +48,53 @@ const knowledge = [
     answer: '**Confidentiality & Non-Disclosure (NDA) Notice:**\n- Specific enterprise client identities, proprietary source code, and internal corporate data are protected under **Non-Disclosure Agreements (NDAs)**.\n- Tu Quet welcomes technical deep-dives into **system architecture, WebSocket telemetry streaming, database optimizations, and high-concurrency solutions** he directly engineered, in full compliance with confidentiality standards.',
   },
   {
-    keys: ['summary', 'recruiter', 'who', 'about', 'tu quet', 'achievements', 'overview', 'highlights', 'hire'],
-    answer: '**Executive Summary for Recruiters & Hiring Managers:**\n- **Track Record:** 8+ years architecting high-scale distributed backend systems, real-time data streaming engines, and world-class web applications.\n- **Engineering Leadership:** Technical Project Lead leading 3 squads (15+ engineers) delivering enterprise real-time telemetry platforms; former CPO & Tech Lead at ICOMM Tech.\n- **Core Capabilities:** Systems programming in **Rust** (Win32 Job Objects, Tokio async) & **Java / Spring Boot**; modern web with **React / Next.js** (Core Web Vitals LCP < 2s, INP < 150ms); real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Product & AI Mindset:** Deep PLG (Product-Led Growth) product discovery coupled with modern AI-augmented SDLC (MCP, LLM toolchains), boosting sprint feature velocity by 25%.',
+    keys: ['summary', 'recruiter', 'who', 'about', 'tu quet', 'achievements', 'overview', 'highlights', 'hire', 'background'],
+    answer: '**Executive Summary for Recruiters & Hiring Managers:**\n- **Track Record:** 8+ years architecting high-scale distributed backend systems, real-time data streaming engines, and world-class web applications.\n- **Engineering Leadership:** Technical Project Lead leading 3 squads (15+ engineers) delivering enterprise real-time telemetry platforms; former CPO & Tech Lead at ICOMM Tech.\n- **Core Capabilities:** Systems programming in **Rust** (Win32 Job Objects, Tokio async) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js** (Core Web Vitals LCP < 2s, INP < 150ms); real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Product & AI Mindset:** Deep PLG (Product-Led Growth) product discovery coupled with modern AI-augmented SDLC (MCP, LLM toolchains), boosting sprint feature velocity by 25%.\n- **Full CV Link:** [tuquet.github.io/cv](https://tuquet.github.io/cv)',
   },
   {
-    keys: ['fit', 'role', 'position', 'match', 'suitable', 'openings', 'lead', 'architect'],
+    keys: ['fit', 'role', 'position', 'match', 'suitable', 'openings', 'lead', 'architect', 'scope', 'senior', 'staff', 'principal'],
     answer: '**Role Fit & Ideal Engagement:**\n- **Technical Project Lead / Tech Lead:** Proven capability managing 15+ engineers across multiple squads, driving architecture roadmaps, technical debt governance, and sprint delivery.\n- **Staff / Principal / Senior Software Engineer:** Deep hands-on mastery of distributed backend systems, Rust async runtimes, Java/Spring Boot services, and complex real-time WebSockets.\n- **Solutions Architect:** Designing resilient cloud and hybrid telemetry architectures, Medallion data pipelines, and enterprise micro-frontends.\n- **Working Culture:** Agile Scrum / Kanban, clean code advocate, mentor, and product-first innovator.',
   },
   {
-    keys: ['telemetry', 'ev', 'websocket', 'sse', 'realtime', 'streaming', 'fleet'],
+    keys: ['telemetry', 'ev', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
     answer: '**EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (15+ engineers) for a leading automotive tech platform.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
   },
   {
-    keys: ['tuquet', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'win32'],
-    answer: '**Tuquet Distributed Automation & Crawler Pipeline:**\n- Tu Quet engineered a zero-leakage process supervision core using **Windows Win32 Job Objects** with IO completion ports, completely eliminating zombie Chromium processes.\n- Designed a 3-tier **Medallion architecture** (Bronze raw BLOB gzip -> Silver Rust sanitizer & deduplicator -> Gold Supabase sync) with zero-cost local caching.\n- Authored the CLI (`tuquet`) in Rust with rustyline auto-completion, distributed via official Windows Scoop bucket.',
+    keys: ['runner', 'engine', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'win32', 'process'],
+    answer: '**Distributed Automation & Process Supervision Engine:**\n- Engineered a zero-leakage process supervision core using **Windows Win32 Job Objects** with IO completion ports, completely eliminating zombie Chromium processes.\n- Designed a 3-tier **Medallion architecture** (Bronze raw BLOB gzip -> Silver Rust sanitizer & deduplicator -> Gold Supabase sync) with zero-cost local caching.\n- Authored the CLI in Rust with rustyline auto-completion, distributed via official Windows Scoop bucket: [github.com/tuquet/scoop-bucket](https://github.com/tuquet/scoop-bucket).',
   },
   {
-    keys: ['diagram', 'architecture', 'diagrams', 'pipeline', 'storybook', 'archify', 'visual', 'demo', 'showcase', 'live'],
-    answer: '**Interactive Artifacts & Live Architecture Showcases:**\n- 🗺️ **Automa Architecture Visualizer:** Explore the multi-repo orchestration pipeline rendered with Archify at [tuquet.github.io/automa/pipeline.html](https://tuquet.github.io/automa/pipeline.html)\n- 📖 **Core Daemon API Reference:** Interactive Scalar OpenAPI docs for Rust Axum daemons at [tuquet.github.io/automa/api/](https://tuquet.github.io/automa/api/)\n- 🎨 **Enterprise Storybook Showcase:** Live interactive data grid & UI components at [tuquet.github.io/lib/](https://tuquet.github.io/lib/)\n- 🛸 **Automa Studio Portal:** Closed-loop automation & OS orchestration hub at [tuquet.github.io/automa/](https://tuquet.github.io/automa/)\n- 📦 **Windows Scoop Distribution:** Official Scoop bucket at [github.com/tuquet/tuquet-scoop-bucket](https://github.com/tuquet/tuquet-scoop-bucket)',
+    keys: ['diagram', 'architecture', 'diagrams', 'pipeline', 'storybook', 'archify', 'visual', 'demo', 'showcase', 'live', 'projects'],
+    answer: '**Interactive Artifacts & Live Architecture Showcases:**\n- **Automa Architecture Visualizer:** Explore the multi-repo orchestration pipeline rendered with Archify at [tuquet.github.io/automa/pipeline.html](https://tuquet.github.io/automa/pipeline.html)\n- **Core Daemon API Reference:** Interactive Scalar OpenAPI docs for Rust Axum daemons at [tuquet.github.io/automa/api/](https://tuquet.github.io/automa/api/)\n- **Enterprise Storybook Showcase:** Live interactive data grid & UI components at [tuquet.github.io/lib/](https://tuquet.github.io/lib/)\n- **Automa Studio Portal:** Closed-loop automation & OS orchestration hub at [tuquet.github.io/automa/](https://tuquet.github.io/automa/)\n- **Windows Scoop Distribution:** Official Scoop bucket at [github.com/tuquet/scoop-bucket](https://github.com/tuquet/scoop-bucket)',
   },
   {
     keys: ['portal', 'theme park', 'booking', 'webview', 'hospitality', 'high-scale web', 'high-traffic'],
     answer: '**High-Scale Web & Booking Portals – Theme Park Enterprise:**\n- Tu Quet served as **Lead Frontend Engineer**, building, refactoring, and delivering feature enhancements for high-traffic Visitor Web Portals and Partner Booking WebViews for a premier international theme park enterprise.\n- Engineered responsive, pixel-perfect mobile-embedded WebViews in React, Vite, and Tailwind CSS adhering strictly to client design specs.\n- Established seamless local developer workflows and mock data synchronization between Spring Boot backend services and React/React Native clients.',
   },
   {
-    keys: ['team', 'squad', 'mentoring', 'management', 'culture', '15+'],
+    keys: ['team', 'squad', 'mentoring', 'management', 'culture', '15+', 'leadership', 'lead'],
     answer: '**Leadership Experience & Team Scaling:**\n- Scaled and led cross-functional teams: **Technical Project Lead** (15+ engineers across 3 squads), **Chief Product Officer & Tech Lead** (ICOMM Tech, scaling SaaS products to thousands of businesses), **Senior Software Engineer** (OpenCommerce Group).\n- Mentored 15+ engineers in Component-Driven Architecture, JavaScript Clean Code, and performance profiling.\n- Recognized with the **Rising Star Award** (Q4/2025).',
   },
   {
-    keys: ['stack', 'tech', 'skill', 'skills', 'java', 'spring', 'react', 'rust', 'node', 'database'],
+    keys: ['stack', 'tech stack', 'technologies', 'skill', 'skills', 'programming', 'languages', 'frameworks'],
     answer: '**Core Tech Stack & Architecture:**\n- **Backend/Systems:** Rust (Tokio, Win32 Job Objects), Java / Spring Boot (Security, JPA), Node.js / NestJS, Event-Driven Architecture.\n- **Frontend:** React (Concurrent Features, Next.js, Server Components), Vue.js (Nuxt), TypeScript, Micro-frontends (Module Federation), Tailwind CSS.\n- **Data & Real-time:** Redis, WebSockets, SSE, PostgreSQL, Supabase, ClickHouse OLAP, Apache Solr.\n- **DevOps & Cloud:** Docker, Kubernetes fundamentals, Azure Cloud, Linux CLI, GitHub Actions CI/CD.\n- **AI & Productivity:** Model Context Protocol (MCP), LLM toolchains, Playwright, Vitest, Jest.',
   },
   {
-    keys: ['contact', 'email', 'phone', 'location', 'interview', 'salary', 'connect'],
-    answer: '**Contact Information & Availability:**\n- Tu Quet is open to high-impact technical leadership and senior engineering opportunities.\n- **Phone:** +84 936 683 088\n- **Email:** tunyk.93@gmail.com\n- **Location:** Ha Dong, Ha Noi, Vietnam\n- **GitHub:** [github.com/tuquet](https://github.com/tuquet)\n- **LinkedIn:** [linkedin.com/in/tuquet](https://www.linkedin.com/in/tuquet)\n- **NPM Organization:** [npmjs.com/org/tuquet](https://www.npmjs.com/org/tuquet)',
+    keys: ['contact', 'email', 'phone', 'location', 'interview', 'salary', 'connect', 'reach', 'schedule'],
+    answer: '**Contact Information & Availability:**\n- Tu Quet is open to high-impact technical leadership and senior engineering opportunities.\n- **Phone:** +84 936 683 088\n- **Email:** tunyk.93@gmail.com\n- **Location:** Ha Dong, Ha Noi, Vietnam\n- **Online CV:** [tuquet.github.io/cv](https://tuquet.github.io/cv)\n- **GitHub:** [github.com/tuquet](https://github.com/tuquet)\n- **LinkedIn:** [linkedin.com/in/tuquet](https://www.linkedin.com/in/tuquet)\n- **NPM Organization:** [npmjs.com/org/tuquet](https://www.npmjs.com/org/tuquet)',
   },
 ]
 
 const chips = [
-  { label: 'Executive Summary', q: 'summary' },
-  { label: 'Role Fit & Scope', q: 'fit' },
-  { label: 'Architecture Diagrams', q: 'diagram' },
-  { label: 'EV Telemetry Platform', q: 'telemetry' },
-  { label: 'High-Scale Web & Booking', q: 'portal' },
-  { label: 'Rust Process Engine', q: 'tuquet' },
-  { label: 'Core Tech Stack', q: 'stack' },
-  { label: 'Contact & Availability', q: 'contact' },
+  { label: 'CV / Resume', q: 'Where can I find Tu Quet\'s CV or Resume link?' },
+  { label: 'Executive Summary', q: 'Can you provide an executive summary of Tu Quet\'s background?' },
+  { label: 'EV Telemetry', q: 'Tell me about the EV Telemetry & Fleet monitoring platform' },
+  { label: 'Process Engine', q: 'How does his Rust zero-zombie process supervisor work?' },
+  { label: 'Contact', q: 'How can I contact Tu Quet for an interview?' },
 ]
 
 function queryKnowledge(query: string): string {
-  const lower = query.toLowerCase()
+  const lower = query.toLowerCase().trim()
 
   let bestMatch: any = null
   let maxScore = 0
@@ -101,8 +102,14 @@ function queryKnowledge(query: string): string {
   knowledge.forEach((item) => {
     let score = 0
     item.keys.forEach((key) => {
-      if (lower.includes(key.toLowerCase()))
-        score += key.length > 3 ? 3 : 1
+      const lowerKey = key.toLowerCase()
+      if (lower.includes(lowerKey)) {
+        score += lowerKey.length >= 3 ? lowerKey.length : 2
+        if (['cv', 'resume'].includes(lowerKey)) {
+          if (new RegExp(`\\b${lowerKey}\\b`, 'i').test(lower))
+            score += 10
+        }
+      }
     })
     if (score > maxScore) {
       maxScore = score
@@ -111,7 +118,7 @@ function queryKnowledge(query: string): string {
   })
 
   if (!bestMatch) {
-    return 'I can answer questions regarding Tu Quet\'s **technical architecture**, **distributed systems experience**, **leadership across 15+ engineers**, **role fit check**, or **contact info**. Feel free to pick a prompt below!'
+    return 'I can answer questions regarding Tu Quet\'s **CV / Resume**, **technical architecture**, **distributed systems experience**, **leadership across 15+ engineers**, **role fit check**, or **contact info**. Feel free to pick a prompt below!'
   }
 
   return bestMatch
@@ -166,7 +173,7 @@ function toggleOpen() {
 </script>
 
 <template>
-  <div class="portfolio-copilot-container fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 print:hidden">
+  <div class="portfolio-ai-container fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 print:hidden">
     <!-- Trigger Floating Action Button -->
     <button
       type="button"
@@ -197,7 +204,7 @@ function toggleOpen() {
           </div>
           <div>
             <div class="text-[13px] font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight flex items-center gap-1.5">
-              <span>Tu Quet AI Copilot</span>
+              <span>Tu Quet AI</span>
               <span class="text-[10px] px-1 rounded font-normal bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">Online</span>
             </div>
             <div class="text-[11px] text-zinc-500 dark:text-zinc-400">
@@ -248,12 +255,12 @@ function toggleOpen() {
       </div>
 
       <!-- Quick Action Chips -->
-      <div class="shrink-0 flex flex-wrap gap-1.5 p-3 border-t border-zinc-100 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 max-h-[105px] overflow-y-auto">
+      <div class="shrink-0 flex items-center gap-1.5 px-3 py-2 border-t border-zinc-100 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 overflow-x-auto no-scrollbar">
         <button
           v-for="chip in chips"
           :key="chip.q"
           type="button"
-          class="px-2.5 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 border border-zinc-200 dark:border-zinc-700/80 rounded-md transition-colors cursor-pointer shadow-2xs"
+          class="shrink-0 px-2.5 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100 border border-zinc-200 dark:border-zinc-700 rounded-full transition-colors cursor-pointer shadow-2xs whitespace-nowrap"
           @click="handleSend(chip.q)"
         >
           {{ chip.label }}
@@ -282,3 +289,13 @@ function toggleOpen() {
     </div>
   </div>
 </template>
+
+<style scoped>
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
