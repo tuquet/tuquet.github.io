@@ -629,11 +629,6 @@ const activeItem = computed(() => circles.find(c => c.id === hoveredId.value) ||
           }"
           class="transition-all duration-300 rounded-full overflow-hidden absolute hover:shadow-2xl hover:scale-120 border border-base bg-white dark:bg-zinc-900 flex items-center justify-center cursor-pointer p-2.5 hover:border-zinc-400 dark:hover:border-zinc-500"
           v-bind="item.link ? (item.link.startsWith('http') ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : { to: item.link }) : {}"
-          v-tooltip="{
-            content: `${item.name}${item.role ? ` · ${item.role}` : ''}`,
-            placement: 'top',
-            distance: 8,
-          }"
           @mouseenter="hoveredId = item.id"
           @mouseleave="hoveredId = null"
         >
@@ -641,21 +636,27 @@ const activeItem = computed(() => circles.find(c => c.id === hoveredId.value) ||
             :src="item.logo"
             :alt="item.name"
             class="w-full h-full object-contain rounded-full transition-all duration-300 pointer-events-none"
+            style="margin: 0 !important;"
             loading="lazy"
           >
         </component>
       </div>
 
       <!-- Live Hover Detail Bar -->
-      <div class="min-h-12 mt-4 flex items-center justify-center">
+      <div class="h-14 mt-4 flex items-center justify-center">
         <transition name="fade" mode="out-in">
           <div
             v-if="activeItem"
             :key="activeItem.id"
-            class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-zinc-200/90 dark:border-zinc-800/90 bg-white/90 dark:bg-zinc-900/90 shadow-lg backdrop-blur-sm"
+            class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-base bg-zinc-50 dark:bg-zinc-900 shadow-md transition-all max-w-full"
           >
-            <img :src="activeItem.logo" :alt="activeItem.name" class="w-6 h-6 object-contain rounded-full shrink-0">
-            <div class="text-xs sm:text-sm flex flex-wrap items-center gap-1.5 leading-none">
+            <img
+              :src="activeItem.logo"
+              :alt="activeItem.name"
+              class="w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6 object-contain rounded-full shrink-0 !m-0 !p-0 !block"
+              style="width: 24px; height: 24px; min-width: 24px; min-height: 24px; margin: 0 !important;"
+            >
+            <div class="text-xs sm:text-sm flex flex-wrap sm:flex-nowrap items-center gap-1.5 whitespace-nowrap leading-none">
               <span class="font-semibold text-zinc-900 dark:text-zinc-100">{{ activeItem.name }}</span>
               <span v-if="activeItem.role" class="text-zinc-400 dark:text-zinc-500">·</span>
               <span v-if="activeItem.role" class="text-zinc-600 dark:text-zinc-300 font-medium">{{ activeItem.role }}</span>
@@ -665,7 +666,7 @@ const activeItem = computed(() => circles.find(c => c.id === hoveredId.value) ||
           <div
             v-else
             key="placeholder"
-            class="text-xs text-zinc-400/70 dark:text-zinc-500/70 font-mono tracking-wide px-4 py-2"
+            class="text-xs text-zinc-400/60 dark:text-zinc-500/60 font-mono tracking-wide px-4 py-2"
           >
             Hover over any partner or client to view details
           </div>
@@ -800,3 +801,9 @@ const activeItem = computed(() => circles.find(c => c.id === hoveredId.value) ||
     </div>
   </div>
 </template>
+
+<style scoped>
+.sponsor-circles-component img {
+  margin: 0 !important;
+}
+</style>

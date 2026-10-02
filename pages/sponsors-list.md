@@ -5,6 +5,8 @@ subtitle: Organizations & enterprise clients
 description: Enterprise clients, employers, and strategic partners of Tu Quet
 ---
 
+<!-- @layout-full-width -->
+
 <div class="prose m-auto text-center">
   <p op75>
     Organizations, clients, and technology platforms I have had the privilege to architect, lead, and engineer systems for.
