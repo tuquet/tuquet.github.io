@@ -1,94 +1,145 @@
 ---
-title: 'Xây dựng Telegram ChatOps Bot & Giám sát hạ tầng VPS tự động hóa với Node.js và GrammY'
+title: 'Biến Telegram thành trung tâm điều khiển VPS và GitHub Actions: Đi cà phê vẫn quản lý được dự án'
 date: 2026-10-03T12:30:00Z
 lang: vi
 duration: 6min
 type: blog
-description: 'Hành trình kiến tạo trợ lý DevOps cá nhân @FlowupAI_bot: Điều khiển CI/CD GitHub Actions, giám sát tài nguyên VPS và tự động hóa thông báo Release thời gian thực qua Telegram.'
+description: 'Cách mình tự làm một trợ lý bot Telegram bằng Node.js để theo dõi sức khỏe server VPS, nhận báo lỗi CI/CD GitHub tức thì trên điện thoại và tự động thông báo bài viết mới.'
 ---
 
-Đối với một kỹ sư phần mềm hay Tech Lead quản trị nhiều dự án song song, việc liên tục phải mở laptop, bật Terminal gõ lệnh SSH vào máy chủ hoặc truy cập GitHub web để kiểm tra trạng thái CI/CD là một tác vụ gây phân mảnh sự tập trung.
+Có bao giờ bạn rơi vào tình huống này chưa: Cuối tuần vừa bấm `git push` một nhánh tính năng mới lên GitHub, sau đó rời máy tính đi ăn trưa hay ngồi cà phê với bạn bè. Trong đầu bạn vẫn lấn cấn:
 
-Tại sao không biến ứng dụng nhắn tin quen thuộc trên chiếc điện thoại trong túi quần thành một **Control Room** di động?
+> *"Không biết code vừa push lên GitHub Actions chạy có bị lỗi (fail) không nhỉ?"*  
+> *"Con VPS ở nhà đang kéo cron job không biết có bị tràn RAM hay đứng máy không?"*
 
-Trong bài viết này, tôi muốn chia sẻ kiến trúc và kinh nghiệm thực chiến khi xây dựng **Flowup Bot** (`@FlowupAI_bot`) — trợ lý ChatOps chạy ngầm 24/7 trên Linux VPS, tích hợp liền mạch với GitHub Actions và hệ thống phân phối Release tự động.
+Mỗi lần như vậy, việc phải móc laptop ra, mở màn hình, phát Wi-Fi điện thoại rồi gõ lệnh SSH vào server hay mở trình duyệt F5 GitHub quả thực rất phiền toái.
+
+Đó là lý do mình tự viết một chú bot Telegram nhỏ gọn mang tên **Flowup Bot** (`@FlowupAI_bot`) để phục vụ nhu cầu cá nhân. Trong bài viết này, mình sẽ chia sẻ lại cách làm cực kỳ đơn giản để bạn có thể tự dựng một "phòng điều khiển mini" nằm gọn trong chiếc điện thoại của mình.
 
 ---
 
-## 1. Kiến trúc tổng thể: Lightweight & Zero-Open-Port
+## 1. Con bot này làm được những gì?
 
-Thay vì dựng một web service nặng nề phải mở cổng mạng công khai (cần public IP, SSL cert và Reverse Proxy), chúng tôi lựa chọn kiến trúc hướng sự kiện tinh gọn:
+Nói một cách dân dã, con bot này đóng vai trò như một **người trực ban 24/7** ngồi trên máy chủ VPS:
+
+* **Báo cáo tài nguyên máy chủ:** Bấm nút `/server`, bot trả lời ngay lập tức mức sử dụng CPU, dung lượng RAM còn lại và ổ cứng đã dùng hết bao nhiêu phần trăm.
+* **Theo dõi nhiều dự án GitHub cùng lúc:** Bấm `/ci all`, bot tự quét toàn bộ các repository của bạn và hiển thị danh sách xem nhánh nào Xanh (Build thành công), nhánh nào Đỏ (Build lỗi).
+* **Đọc log lỗi khi build fail:** Nếu GitHub Actions bị fail, bot tự động trích xuất vài chục dòng log lỗi quan trọng nhất và gửi thẳng vào tin nhắn. Bạn chỉ cần liếc màn hình điện thoại là biết do sai cú pháp hay thiếu biến môi trường.
+* **Bấm nút Deploy từ xa:** Khi muốn phát hành website, chỉ cần ấn nút **Deploy** trên Telegram, bot sẽ tự gọi GitHub trigger quy trình phát hành mà không cần mở máy tính.
+* **Tự động báo khi có bài viết hoặc bản release mới:** Khi blog của bạn đăng bài mới hoặc có package mới được release, bot tự "ting ting" gửi link tóm tắt vào nhóm chat.
 
 ```text
-[Telegram Client] (iOS / Android / Desktop)
-       │
-       ▼ (Telegram Bot API - HTTPS Long Polling)
-┌────────────────────────────────────────────────────────┐
-│  Flowup Bot Daemon (Node.js + GrammY)                  │
-│                                                        │
-│  ├── 🛡️ Whitelist & RBAC Middleware                    │
-│  ├── 💻 System Monitor (CPU, RAM, Disk, SSL)          │
-│  ├── 🐙 GitHub Service (gh CLI Actions Dispatch)       │
-│  ├── 📡 Releases Syndication (RSS / Netlify API)       │
-│  └── ⏰ Multi-Repo CI Background Watcher               │
-└────────────────────────────────────────────────────────┘
-       │                                     │
-       ▼                                     ▼
-[Host Linux VPS / systemd]          [GitHub Ecosystem (10+ Repos)]
+📱 Màn hình điện thoại của bạn
+┌───────────────────────────────────────────────┐
+│ @FlowupAI_bot                                 │
+│                                               │
+│ 💻 Báo cáo hệ thống VPS:                      │
+│ • CPU: 12% | 4 Cores                          │
+│ • RAM: 1.8GB / 7.6GB (23.7%)                 │
+│ • Disk: 14.2GB / 80GB (18%)                   │
+│ • Uptime: 14 ngày 6 giờ                       │
+│                                               │
+│ [ 📊 Xem CI ] [ 🚀 Deploy ] [ 📦 Releases ]   │
+└───────────────────────────────────────────────┘
 ```
 
-### Tại sao chọn GrammY?
-* **Type-safe & Middleware-first:** Kiến trúc pipeline tương tự Koa/Express, cực kỳ dễ viết các lớp kiểm duyệt bảo mật.
-* **Long Polling ổn định:** Bot chủ động kéo cập nhật (pull) từ máy chủ Telegram qua HTTPS outbound. Máy chủ VPS có thể nằm sau NAT, Firewall nghiêm ngặt mà không cần mở bất kỳ inbound port nào.
-* **Tài nguyên siêu nhẹ:** Daemon chỉ tiêu thụ xấp xỉ **25MB RAM**, hoàn hảo để chạy nền mà không ảnh hưởng tới các tiến trình chính của máy chủ.
+---
+
+## 2. Vì sao dùng Telegram mà không phải Discord hay Slack?
+
+* **Ứng dụng có sẵn trên điện thoại:** Telegram mở nhanh, thông báo mượt mà, hỗ trợ cả giao diện nút bấm (Inline Keyboard) rất tiện tay khi dùng một tay.
+* **Cực kỳ nhẹ:** Thư viện Telegram Bot trên Node.js ngốn chưa tới **25MB RAM**, chạy tốn rất ít tài nguyên trên các gói VPS giá rẻ (thậm chí gói 1GB RAM vẫn dư dả).
+* **Không cần mở cổng mạng (Port):** Bot sử dụng cơ chế *Long Polling* — nghĩa là bot tự chủ động "hỏi" máy chủ Telegram xem có tin nhắn mới không. Do đó, bạn **không cần mua tên miền, không cần cấu hình HTTPS webhook, và không cần mở bất kỳ port nào trên firewall của VPS**. Rất an toàn!
 
 ---
 
-## 2. Bảo mật đa tầng & Phân quyền Admin (RBAC)
+## 3. Hướng dẫn tự làm bot trong 4 bước đơn giản
 
-Bot nằm trong nhóm chat trao đổi kỹ thuật, do đó bảo mật là ưu tiên hàng đầu:
+Bạn hoàn toàn có thể tự dựng một con bot tương tự chỉ với Node.js.
 
-1. **Whitelist Chat ID:** Bất kỳ tin nhắn hoặc sự kiện nào đến từ chat ID không nằm trong danh sách trắng (`ALLOWED_CHAT_IDS`) đều bị âm thầm từ chối (drop) và ghi log kiểm toán.
-2. **Admin-Only Commands:** Các lệnh có khả năng can thiệp hệ thống như `/deploy`, `/server`, `/services` được bọc qua middleware xác thực User ID của Admin (`ADMIN_USER_IDS`). Các thành viên thông thường chỉ có thể tra cứu thông tin công khai (`/ci`, `/releases`, `/site`, `/repos`).
-3. **Tự thích ứng Supergroup (`migrate_to_chat_id`):** Khi một nhóm Telegram được chuyển đổi thành Supergroup, ID nhóm sẽ tự động thay đổi tiền tố. Bot lắng nghe sự kiện di trú này để cập nhật danh sách cấp quyền trong bộ nhớ runtime mà không làm gián đoạn liên lạc.
+### Bước 1: Tạo bot trên Telegram
 
----
+1. Mở Telegram, tìm kiếm con bot chính chủ của Telegram là `@BotFather`.
+2. Gõ `/newbot`, đặt tên cho bot (ví dụ: `MyDevOpsBot`).
+3. BotFather sẽ cấp cho bạn một chuỗi **Token** dạng: `7123456789:AAFxxx_your_token_here`. Hãy lưu token này lại thật cẩn thận.
 
-## 3. Điều khiển CI/CD & Giám sát Multi-Repo
+### Bước 2: Khởi tạo dự án Node.js với thư viện GrammY
 
-Thay vì phải tạo Webhook riêng lẻ trên hàng chục kho mã nguồn, bot tận dụng sức mạnh của **GitHub CLI (`gh`)** đã được xác thực trên máy chủ:
+GrammY là thư viện Node.js hiện đại, viết bằng TypeScript, xử lý tin nhắn rất nhanh và dễ hiểu:
 
-* **Điều khiển linh hoạt:**
-  * `/ci` — Kiểm tra nhanh trạng thái build của website chính.
-  * `/ci all` — Quét song song và tổng hợp bảng trạng thái CI của toàn bộ 10+ repository trong hệ sinh thái (`tuquet.github.io`, `releases`, `cloud`, `runner`, `lib`, `cli`, v.v.).
-  * `/ci <repo>` — Tra cứu chi tiết một repo cụ thể.
-* **Trích xuất thông minh lỗi build (`/logs`):** Khi một workflow bị thất bại, bot tự động kéo 35 dòng log lỗi gần nhất (`gh run view --log-failed`) và định dạng vào thẻ `<pre>` để người quản trị đọc được nguyên nhân ngay trên màn hình điện thoại mà không cần mở trình duyệt.
-* **Tránh gây hiểu nhầm lịch sử:** Nếu lần build mới nhất đã Xanh (Thành công), bot ghi chú rõ ràng rằng lỗi hiển thị bên dưới chỉ là log tham khảo của lần chạy cũ trước đó đã được khắc phục hoàn tất.
-
----
-
-## 4. Tự động hóa thông báo Release qua RSS Feed
-
-Một trong những tính năng thú vị nhất là kết nối với cổng [Releases Portal](https://tuquet.netlify.app/) và nguồn cấp dữ liệu `feed.xml`:
-
-```text
-[GitHub Release on any Repo]
-            │
-            ▼ (Netlify Serverless Discovery)
-[tuquet.netlify.app/api/releases] (feed.xml)
-            │
-            ▼ (Background Poll 5min/time)
-    [Flowup Bot Daemon]
-            │
-            ▼ (Broadcast Notification)
-[Telegram Group: "Bot Notification"]
-"🎉 PHÁT HÀNH MỚI: tuquet/flowup-bot v1.0.0"
+```bash
+mkdir my-bot && cd my-bot
+npm init -y
+npm install grammy
 ```
 
-Cứ mỗi 5 phút, daemon chạy ngầm đối chiếu bản phát hành mới nhất với tệp trạng thái `data/last_release.json`. Khi có package hoặc công cụ mới được release, thông báo định dạng đẹp kèm link phát hành sẽ được tự động bắn thẳng vào nhóm Telegram.
+Tạo file `bot.js`:
+
+```javascript
+import { Bot, InlineKeyboard } from 'grammy';
+import os from 'os';
+
+// Điền token bạn nhận được từ BotFather
+const bot = new Bot(process.env.TELEGRAM_TOKEN);
+
+// Khóa bảo mật: Chỉ cho phép User ID của bạn điều khiển bot
+const ADMIN_ID = 1038133235;
+
+// Lệnh /start: Hiện nút bấm nhanh
+bot.command('start', async (ctx) => {
+  const keyboard = new InlineKeyboard()
+    .text('💻 Kiểm tra VPS', 'check_server')
+    .text('🚀 Deploy Website', 'do_deploy');
+
+  await ctx.reply('Chào bạn! Mình là trợ lý DevOps của bạn.', {
+    reply_markup: keyboard,
+  });
+});
+
+// Xử lý khi bấm nút "Kiểm tra VPS"
+bot.callbackQuery('check_server', async (ctx) => {
+  const freeMem = (os.freemem() / 1024 / 1024 / 1024).toFixed(1);
+  const totalMem = (os.totalmem() / 1024 / 1024 / 1024).toFixed(1);
+  
+  await ctx.reply(
+    `💻 <b>Tình trạng VPS:</b>\n` +
+    `• RAM còn trống: ${freeMem} GB / ${totalMem} GB\n` +
+    `• Nền tảng: ${os.type()} ${os.arch()}`,
+    { parse_mode: 'HTML' }
+  );
+  await ctx.answerCallbackQuery();
+});
+
+// Bật bot chạy liên tục
+bot.start();
+console.log('Bot đang chạy...');
+```
+
+Chạy thử bằng lệnh:
+```bash
+TELEGRAM_TOKEN="token_cua_ban" node bot.js
+```
+Bây giờ, hãy mở Telegram trên điện thoại, bấm `/start` với con bot của bạn và ấn nút **Kiểm tra VPS**, bạn sẽ thấy kết quả phản hồi chỉ sau 1 giây!
 
 ---
 
-## 5. Kết luận
+## 4. Hai bài học kinh nghiệm về bảo mật khi làm ChatOps
 
-Một hệ thống DevOps hiệu quả không nhất thiết phải cồng kềnh hay đắt đỏ. Chỉ với Node.js, GrammY và một daemon systemd được cấu trúc chỉn chu, chúng ta đã có một **trợ lý trực ban 24/7**, giúp việc giám sát hạ tầng và điều phối phần mềm trở nên nhẹ nhàng, tức thì và đầy tin cậy.
+Khi giao quyền điều khiển máy chủ cho một con bot nhắn tin, có hai điều bạn bắt buộc phải lưu ý:
+
+### 1. Phải có lớp lọc người dùng (Whitelist)
+Đừng bao giờ để bot mở cho tất cả mọi người bấm. Nếu bạn thêm bot vào một nhóm chat có bạn bè hoặc đồng nghiệp, hãy viết một đoạn middleware kiểm tra `ctx.from.id`:
+* Nếu ID không phải là bạn ➔ Từ chối thực thi các lệnh nguy hiểm như reboot, deploy hay xóa file.
+* Các thành viên khác chỉ được xem các thông tin công khai (như trạng thái website hay danh sách bài viết).
+
+### 2. Ưu tiên Outbound Polling thay vì Webhook
+Nhiều người nghĩ làm Webhook nhận tin nhắn sẽ nhanh hơn, nhưng Webhook bắt buộc bạn phải trỏ domain về VPS và mở port 443/8443 ra ngoài Internet. Điều này dễ khiến IP máy chủ bị lộ và bị dò quét lỗ hổng.  
+Dùng Long Polling vừa an toàn, vừa không sợ tường lửa hay mạng nội bộ chặn kết nối.
+
+---
+
+## 5. Lời kết
+
+Tự làm một con bot Telegram không hề phức tạp như nhiều người nghĩ. Chỉ với vài chục dòng mã Node.js, bạn đã giải phóng bản thân khỏi việc phải ngồi ôm laptop canh chừng máy chủ hay F5 trang GitHub.
+
+Nếu bạn đang quản lý một vài trang web cá nhân, một con VPS hay vài repo mã nguồn mở, hãy thử làm một chú bot cho riêng mình. Cảm giác vừa ngồi nhâm nhi ly trà đá vừa bấm điện thoại deploy sản phẩm thực sự rất thú vị!
