@@ -61,7 +61,7 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 
 | Company | Role | Duration | Key Clients & Scope |
 | :--- | :--- | :--- | :--- |
-| **CMC Global** | Technical Project Lead | 09/2024 – Present | VinFast (EV Telemetry), Lotte Group (Theme Park Portals) |
+| **CMC Global** | Technical Project Lead | 09/2024 – Present | Smart EV Telemetry Platform, Lotte Group (Theme Park Portals) |
 | **ICOMM Tech** | CPO & Tech Lead | 05/2020 – 08/2024 | Enterprise Big Data & Multi-Channel Communications |
 | **OpenCommerce Group** | Senior Software Engineer | 12/2018 – 04/2020 | High-Converting E-Commerce Storefronts & Merchant Suite |
 | **TDT Asia** | Full-stack Engineer | 05/2018 – 12/2018 | Japanese Enterprise ERP Portals |
@@ -87,12 +87,12 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Platform, server and database**: Docker, Redis, MS SQL Server, Linux
 - **Methodology**: Agile Scrum
 
-### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform – VinFast <span id="vinfast"></span><span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
+### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform <span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
 - **Timeline**: 09/2024 – Present
 - **Company**: CMC Global
-- **Client**: VinFast Auto (Vingroup)
+- **Client**: Global Smart Electric Vehicle Manufacturer (Tier-1 Enterprise)
 - **Team size**: 15+ engineers (3 squads)
-- **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of VinFast electric vehicles (EVs).
+- **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of 100k+ smart connected electric vehicles (EVs).
 - **Responsibilities**:
   - Served as **Technical Project Lead**, establishing overall technical architecture, engineering standards, and high-throughput telemetry streaming across 3 squads (15+ engineers) processing millions of daily EV operational events.
   - Architected a **Micro-frontends** architecture and standardized a shared enterprise **Design System**, ensuring visual consistency and decoupled release cycles across squads.

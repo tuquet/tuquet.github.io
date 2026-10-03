@@ -34,7 +34,7 @@ const messages = ref<Message[]>([
 const knowledge = [
   {
     keys: ['cv', 'resume', 'curriculum vitae', 'profile', 'pdf', 'download cv', 'cv link', 'resume link', 'get cv', 'view cv', 'link to cv', 'download', 'pdf cv', 'experience', 'qualifications'],
-    answer: '**Tu Quet\'s Professional Profile & Qualifications:**\n- **Current Role:** Technical Project Lead at CMC Global, directing the real-time EV Telemetry platform for **VinFast** and high-scale visitor web portals for **Lotte Group**.\n- **Past Leadership:** CPO & Tech Lead at ICOMM Tech (enterprise Big Data analytics & multi-channel communications platform leading 15+ engineers).\n- **Core Engineering:** Systems programming in **Rust** (Tokio async, Win32 Job Objects) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js**; real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Engineering Culture:** Clean code advocate, Agile Scrum/Kanban, and AI-augmented SDLC (MCP & LLMs) improving team delivery velocity.\n- **Full Interactive CV:** Explore the complete interactive timeline and project breakdowns at [tuquet.github.io/cv](https://tuquet.github.io/cv).\n- Feel free to ask me specific questions about his **EV telemetry streaming**, **process engine**, or **role fit**!',
+    answer: '**Tu Quet\'s Professional Profile & Qualifications:**\n- **Current Role:** Technical Project Lead at CMC Global, directing the real-time Smart EV Telemetry platform and high-scale visitor web portals for **Lotte Group**.\n- **Past Leadership:** CPO & Tech Lead at ICOMM Tech (enterprise Big Data analytics & multi-channel communications platform leading 15+ engineers).\n- **Core Engineering:** Systems programming in **Rust** (Tokio async, Win32 Job Objects) & **Java / Spring Boot**; modern web with **React / Next.js / Vue.js**; real-time telemetry streaming (WebSockets, SSE, Redis).\n- **Engineering Culture:** Clean code advocate, Agile Scrum/Kanban, and AI-augmented SDLC (MCP & LLMs) improving team delivery velocity.\n- **Full Interactive CV:** Explore the complete interactive timeline and project breakdowns at [tuquet.github.io/cv](https://tuquet.github.io/cv).\n- Feel free to ask me specific questions about his **EV telemetry streaming**, **process engine**, or **role fit**!',
   },
   {
     keys: ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening', 'greetings', 'morning', 'afternoon', 'evening'],
@@ -56,8 +56,8 @@ const knowledge = [
     answer: '**Role Fit & Ideal Engagement:**\n- **Technical Project Lead / Tech Lead:** Proven capability managing 15+ engineers across multiple squads, driving architecture roadmaps, technical debt governance, and sprint delivery.\n- **Staff / Principal / Senior Software Engineer:** Deep hands-on mastery of distributed backend systems, Rust async runtimes, Java/Spring Boot services, and complex real-time WebSockets.\n- **Solutions Architect:** Designing resilient cloud and hybrid telemetry architectures, Medallion data pipelines, and enterprise micro-frontends.\n- **Working Culture:** Agile Scrum / Kanban, clean code advocate, mentor, and product-first innovator.',
   },
   {
-    keys: ['telemetry', 'ev', 'vinfast', 'vinfastauto', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
-    answer: '**VinFast EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (15+ engineers) delivering the real-time telemetry streaming platform for **VinFast** electric vehicles via CMC Global.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
+    keys: ['telemetry', 'ev', 'websocket', 'sse', 'realtime', 'streaming', 'fleet', 'automotive'],
+    answer: '**Smart EV Telemetry & Fleet Monitoring Architecture:**\n- Tu Quet served as **Technical Project Lead** across 3 squads (15+ engineers) delivering the real-time telemetry streaming platform for smart electric vehicles via CMC Global.\n- Architected a resilient telemetry streaming pipeline (WebSocket/SSE fallback over Redis pub/sub) handling millions of daily EV operational events with sub-100ms latency.\n- Engineered **Virtual Scrolling, Canvas Data Charting, and Debounced State Updates** maintaining 60fps rendering without blocking the Main Thread.\n- Established route & component code splitting keeping INP < 150ms and LCP < 2.0s.',
   },
   {
     keys: ['runner', 'engine', 'zombie', 'chromium', 'crawler', 'rust', 'medallion', 'job object', 'win32', 'process'],
@@ -88,7 +88,7 @@ const knowledge = [
 const chips = [
   { label: 'CV / Resume', q: 'Where can I find Tu Quet\'s CV or Resume link?' },
   { label: 'Executive Summary', q: 'Can you provide an executive summary of Tu Quet\'s background?' },
-  { label: 'VinFast Telemetry', q: 'Tell me about the VinFast EV Telemetry platform' },
+  { label: 'EV Telemetry', q: 'Tell me about the Smart EV Telemetry platform' },
   { label: 'Process Engine', q: 'How does his Rust zero-zombie process supervisor work?' },
   { label: 'Contact', q: 'How can I contact Tu Quet for an interview?' },
 ]

@@ -6,6 +6,13 @@
     <description>Tu Quet's Blog &amp; Engineering Portfolio</description>
     <language>en</language>
     <item>
+      <title>Xây dựng Telegram ChatOps Bot &amp; Giám sát hạ tầng VPS tự động hóa với Node.js và GrammY</title>
+      <link>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</link>
+      <guid>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</guid>
+      <pubDate>Sat, 03 Oct 2026 12:30:00 GMT</pubDate>
+      <description>Hành trình kiến tạo trợ lý DevOps cá nhân @FlowupAI_bot: Điều khiển CI/CD GitHub Actions, giám sát tài nguyên VPS và tự động hóa thông báo Release thời gian thực qua Telegram.</description>
+    </item>
+    <item>
       <title>Zero-Zombie Chromium Supervision via Win32 Job Objects in Tokio</title>
       <link>https://tuquet.github.io/posts/zero-zombie-chromium-supervision</link>
       <guid>https://tuquet.github.io/posts/zero-zombie-chromium-supervision</guid>

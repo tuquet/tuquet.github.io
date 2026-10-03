@@ -13,15 +13,15 @@ export interface SponsorItem {
 
 export const sponsors: SponsorItem[] = [
   {
-    "id": "vinfast",
-    "name": "VinFast",
+    "id": "ev-telemetry",
+    "name": "Smart EV Fleet",
     "tier": "special",
     "weight": 95,
     "link": "/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform",
-    "logo": "/logos/vinfast.png",
-    "domain": "vinfastauto.com",
+    "logo": "/logos/cmc.png",
+    "domain": "cmcglobal.com.vn",
     "timeline": "2024 – Present",
-    "desc": "Real-time EV telemetry streaming platform for VinFast electric vehicles, processing millions of daily vehicle events with sub-100ms latency.",
+    "desc": "Real-time EV telemetry streaming platform for 100k+ smart connected electric vehicles, processing millions of daily vehicle events with sub-100ms latency.",
     "tags": [
       "TypeScript",
       "Next.js",

@@ -56,9 +56,9 @@ projects:
       icon: 'i-carbon-package'
 
   Enterprise & Case Studies:
-    - name: 'VinFast EV Telemetry'
+    - name: 'Smart EV Telemetry Platform'
       link: '/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform'
-      desc: 'Real-time telemetry streaming platform for 100k+ smart electric vehicles (VinFast / CMC Global)'
+      desc: 'Real-time telemetry streaming platform for 100k+ smart electric vehicles (CMC Global)'
       icon: 'i-carbon-meter'
     - name: 'Lotte World & Theme Park Portals'
       link: '/cv#high-scale-web--booking-portals--lotte-group-theme-park--hospitality'
