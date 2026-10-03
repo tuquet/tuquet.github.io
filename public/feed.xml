@@ -6,6 +6,13 @@
     <description>Tu Quet's Blog &amp; Engineering Portfolio</description>
     <language>en</language>
     <item>
+      <title>Đừng để CV chỉ là một tệp PDF: Vì sao mỗi lập trình viên nên tự dựng một blog cá nhân?</title>
+      <link>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</link>
+      <guid>https://tuquet.github.io/posts/tai-sao-developer-nen-co-blog-ca-nhan</guid>
+      <pubDate>Sat, 03 Oct 2026 13:45:00 GMT</pubDate>
+      <description>Trong kỷ nguyên AI bùng nổ, một tệp CV gạch đầu dòng không còn đủ sức nặng. Viết blog không phải để dạy đời ai, mà là để xây dựng bằng chứng năng lực sống động và lưu giữ kho tri thức của chính bạn.</description>
+    </item>
+    <item>
       <title>Biến Telegram thành trung tâm điều khiển VPS và GitHub Actions: Đi cà phê vẫn quản lý được dự án</title>
       <link>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</link>
       <guid>https://tuquet.github.io/posts/xay-dung-telegram-chatops-bot-giam-sat-vps</guid>
