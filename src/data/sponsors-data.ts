@@ -18,8 +18,8 @@ export const sponsors: SponsorItem[] = [
     "tier": "special",
     "weight": 95,
     "link": "/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform",
-    "logo": "/logos/cmc.png",
-    "domain": "cmcglobal.com.vn",
+    "logo": "/logos/vinfast.png",
+    "domain": "vinfastauto.com",
     "timeline": "2024 – Present",
     "desc": "Real-time EV telemetry streaming platform for 100k+ smart connected electric vehicles, processing millions of daily vehicle events with sub-100ms latency.",
     "tags": [
