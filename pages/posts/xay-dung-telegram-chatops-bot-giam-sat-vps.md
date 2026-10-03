@@ -104,7 +104,7 @@ bot.callbackQuery('check_server', async (ctx) => {
   await ctx.reply(
     `💻 <b>Tình trạng VPS:</b>\n` +
     `• RAM còn trống: ${freeMem} GB / ${totalMem} GB\n` +
-    `• Nền tảng: ${os.type()} ${os.arch()}`,
+    `• Uptime: ${(os.uptime() / 3600).toFixed(1)} giờ`,
     { parse_mode: 'HTML' }
   );
   await ctx.answerCallbackQuery();
