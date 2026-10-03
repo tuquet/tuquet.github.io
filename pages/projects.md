@@ -57,15 +57,15 @@ projects:
 
   Enterprise & Case Studies:
     - name: 'Smart EV Telemetry Platform'
-      link: '/cv#electric-vehicle-ev-telemetry--fleet-monitoring-platform'
+      link: 'https://vinfastauto.com'
       desc: 'Real-time telemetry streaming platform for 100k+ smart electric vehicles (CMC Global)'
       icon: 'i-carbon-meter'
     - name: 'Lotte World & Theme Park Portals'
-      link: '/cv#high-scale-web--booking-portals--lotte-group-theme-park--hospitality'
+      link: 'https://www.lotte.co.kr'
       desc: 'High-traffic consumer booking webview and ticket management platform (Lotte Group / CMC Global)'
       icon: 'i-carbon-ticket'
     - name: 'Big Data Analytics Dashboard'
-      link: '/cv#big-data-analytics--interactive-intelligence-platform'
+      link: 'https://icomm.vn'
       desc: 'Multi-platform enterprise Big Data extraction and intelligence dashboard (ICOMM Tech)'
       icon: 'i-carbon-analytics'
 ---
