@@ -25,7 +25,7 @@ export const primary: ProjectNode[] = [
   },
   {
     name: 'tuquet/runner',
-    display: 'tuquet-runner (Rust Engine)',
+    display: 'runner (Rust Engine)',
     description: 'Distributed universal execution engine in Rust',
     link: 'https://github.com/tuquet/runner',
     color: '#ef4444',
@@ -123,7 +123,7 @@ export const primary: ProjectNode[] = [
   },
   {
     name: 'tuquet/scoop-bucket',
-    display: 'tuquet/scoop-bucket (Windows)',
+    display: 'tuquet/scoop-bucket (Scoop Package)',
     description: 'Official Scoop package bucket for Tuquet software',
     link: 'https://github.com/tuquet/scoop-bucket',
     color: '#ec4899',

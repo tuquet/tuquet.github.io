@@ -12,7 +12,7 @@ projects:
       icon: 'i-carbon-flow-data'
     - name: 'Runner'
       link: 'https://github.com/tuquet/runner'
-      desc: 'High-performance distributed process supervision engine in Rust with Win32 Job Object sandboxing'
+      desc: 'High-performance distributed process supervision engine in Rust with kernel process tree sandboxing'
       icon: 'i-simple-icons-rust'
     - name: 'Browser'
       link: 'https://github.com/tuquet/browser'
@@ -52,7 +52,7 @@ projects:
       icon: 'i-carbon-moon'
     - name: 'Scoop Bucket'
       link: 'https://github.com/tuquet/scoop-bucket'
-      desc: 'Unified Windows package manager distribution for Tuquet CLI and runner binaries'
+      desc: 'Unified package manager distribution for Tuquet master CLI'
       icon: 'i-carbon-package'
 
   Enterprise & Case Studies:

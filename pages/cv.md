@@ -45,13 +45,13 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 
 | Domain | Core Stack & Capabilities |
 | :--- | :--- |
-| **Backend & Systems Engineering** | Java (Spring Boot, Security, JPA), Rust (Tokio, Win32 Jobs), Node.js (NestJS, Express), Event-Driven Architecture |
+| **Backend & Systems Engineering** | Java (Spring Boot, Security, JPA), Rust (Tokio, Systems Programming), Node.js (NestJS, Express), Event-Driven Architecture |
 | **API Design & Streaming** | REST, GraphQL, gRPC, WebSockets, SSE, API Gateways, BFF, Distributed IPC |
 | **Databases & Caching** | PostgreSQL, MS SQL Server, Redis (Pub/Sub, Caching), ClickHouse OLAP, Apache Solr, Schema & Index Optimization |
 | **Frontend Architecture** | React (Next.js, Server Components), Vue.js (Nuxt), TypeScript, Electron JS |
 | **Scalability & Performance** | Micro-frontends (Module Federation), Design Systems (Storybook, Radix), Core Web Vitals (LCP < 2s, INP < 150ms) |
 | **Real-time Data Visualization** | Canvas/SVG Charting, Virtual Grids, ECharts, Highcharts, TanStack Query, SWR |
-| **DevOps & Cloud** | Docker, Kubernetes fundamentals, Azure Cloud, Linux CLI, GitHub Actions CI/CD, Turborepo Monorepo |
+| **DevOps & Cloud** | Docker, Kubernetes fundamentals, Azure Cloud, GitHub Actions CI/CD, Turborepo Monorepo |
 | **AI-Augmented Engineering** | Model Context Protocol (MCP), LLM Toolchains, Playwright, Vitest, Jest |
 | **Engineering Leadership** | Technical Strategy, 15+ Engineers Leadership, Architecture Roadmaps, Tech Debt Governance, Agile Scrum |
 
@@ -84,7 +84,7 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
   - Performed continuous code maintenance, bug fixes, and performance tuning to guarantee cross-browser compatibility and responsive UX across mobile WebViews.
 - **Programming Language**: TypeScript, JavaScript, Java
 - **Framework**: React, Vite, React Native, Tailwind CSS, Spring Boot
-- **Platform, server and database**: Docker, Redis, MS SQL Server, Linux
+- **Platform, server and database**: Docker, Redis, MS SQL Server
 - **Methodology**: Agile Scrum
 
 ### [09/2024 – Present] Electric Vehicle (EV) Telemetry & Fleet Monitoring Platform <span id="electric-vehicle-ev-telemetry--fleet-monitoring-platform"></span>
@@ -94,11 +94,11 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: 15+ engineers (3 squads)
 - **Project description**: Large-scale telemetry dashboard platform for aggregating, monitoring, and analyzing telemetry and operational status for fleets of 100k+ smart connected electric vehicles (EVs).
 - **Responsibilities**:
-  - Served as **Technical Project Lead**, establishing overall technical architecture, engineering standards, and high-throughput telemetry streaming across 3 squads (15+ engineers) processing millions of daily EV operational events.
-  - Architected a **Micro-frontends** architecture and standardized a shared enterprise **Design System**, ensuring visual consistency and decoupled release cycles across squads.
-  - Optimized high-throughput telemetry streaming via WebSockets by implementing **Virtual Scrolling, Canvas Data Charting, and Debounced/Throttled State Updates**, while orchestrating high-throughput BFF aggregation services in **Rust** to sustain a continuous 60fps rendering rate under high data volume without blocking the Main Thread.
-  - Formulated a comprehensive **Core Web Vitals** strategy: orchestrated route-based and component-based dynamic code splitting, reducing INP to < 150ms and maintaining LCP < 2.0s across all mission-critical monitor views.
-  - Introduced **AI-augmented Frontend SDLC** practices (LLM UI generation, automated visual regression testing), elevating frontend feature delivery velocity by 25%.
+-   Served as **Technical Project Lead**, establishing overall technical architecture, engineering standards, and high-throughput telemetry streaming across 3 squads (15+ engineers) processing millions of daily EV operational events.
+-   Architected a **Micro-frontends** architecture and standardized a shared enterprise **Design System**, ensuring visual consistency and decoupled release cycles across squads.
+-   Optimized high-throughput telemetry streaming via WebSockets by implementing **Virtual Scrolling, Canvas Data Charting, and Debounced/Throttled State Updates**, while orchestrating high-throughput BFF aggregation services in **Rust** to sustain a continuous 60fps rendering rate under high data volume without blocking the Main Thread.
+-   Formulated a comprehensive **Core Web Vitals** strategy: orchestrated route-based and component-based dynamic code splitting, reducing INP to < 150ms and maintaining LCP < 2.0s across all mission-critical monitor views.
+-   Introduced **AI-augmented Frontend SDLC** practices (LLM UI generation, automated visual regression testing), elevating frontend feature delivery velocity by 25%.
 - **Programming Language**: TypeScript, JavaScript, HTML5, CSS3, Rust (BFF tooling)
 - **Framework**: React (Concurrent Features), Next.js, Tailwind CSS, Zustand, Node.js
 - **Platform, server and database**: Azure Cloud, Docker, Kubernetes, WebSockets, PostgreSQL, Redis
@@ -111,14 +111,14 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: 15+ engineers
 - **Project description**: Multi-platform enterprise Big Data extraction and intelligence dashboard, delivering interactive data visualization, real-time reporting, and deep analytics under strict enterprise security constraints.
 - **Responsibilities**:
-  - Directed product roadmap and technical architecture as **Chief Product Officer (CPO) & Technical Lead**.
-  - Engineered an interactive **Data Visualization Dashboard** powered by ECharts and Highcharts, solving high-density data rendering challenges for 100,000+ complex visual data points without frame drops.
-  - Implemented **Client-side Caching (SWR/React Query patterns)** and **Virtualized Data Grids**, enabling near-instantaneous search, filtering, and paging across millions of records.
-  - Established automated frontend quality assurance suites (End-to-End testing with Cypress/Playwright and unit testing with Jest), achieving 99.9% application uptime SLA.
-  - Mentored 15+ engineers in Component-Driven Architecture, JavaScript Clean Code principles, and runtime render profiling.
+-   Directed product roadmap and technical architecture as **Chief Product Officer (CPO) & Technical Lead**.
+-   Engineered an interactive **Data Visualization Dashboard** powered by ECharts and Highcharts, solving high-density data rendering challenges for 100,000+ complex visual data points without frame drops.
+-   Implemented **Client-side Caching (SWR/React Query patterns)** and **Virtualized Data Grids**, enabling near-instantaneous search, filtering, and paging across millions of records.
+-   Established automated frontend quality assurance suites (End-to-End testing with Cypress/Playwright and unit testing with Jest), achieving 99.9% application uptime SLA.
+-   Mentored 15+ engineers in Component-Driven Architecture, JavaScript Clean Code principles, and runtime render profiling.
 - **Programming Language**: TypeScript, JavaScript, HTML5, SCSS/CSS3, Python
 - **Framework**: React Ecosystem, Redux Toolkit, ECharts, .NET Core (Backend API)
-- **Platform, server and database**: Docker, Kubernetes, Redis, Apache Solr, ClickHouse, Linux
+- **Platform, server and database**: Docker, Kubernetes, Redis, Apache Solr, ClickHouse
 - **Methodology**: Agile Scrum
 
 ### [12/2018 – 04/2020] High-Converting E-Commerce Storefront & Merchant Suite
@@ -128,10 +128,10 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: 8–10 engineers
 - **Project description**: Ultra-fast e-commerce storefront platform and intelligent cross-selling engine integrated across Shopify, WooCommerce, and WordPress ecosystems.
 - **Responsibilities**:
-  - Served as **Senior Software Engineer**, spearheading storefront user interface development and AI-driven cross-selling recommendation widgets geared toward Product-Led Growth (PLG).
-  - Maximized conversion rate optimization (CRO) and checkout velocity: drove **First Contentful Paint (FCP) to < 1.2s** and **LCP to < 1.8s**, contributing to an estimated 15–20% increase in merchant revenue.
-  - Engineered reusable, modular UI components using **Vue.js and React**, enforcing scoped styles, responsive image optimization (WebP/AVIF), and aggressive bundle size minimization.
-  - Delivered seamless Mobile-First responsive layouts and frictionless multi-gateway payment flows.
+-   Served as **Senior Software Engineer**, spearheading storefront user interface development and AI-driven cross-selling recommendation widgets geared toward Product-Led Growth (PLG).
+-   Maximized conversion rate optimization (CRO) and checkout velocity: drove **First Contentful Paint (FCP) to < 1.2s** and **LCP to < 1.8s**, contributing to an estimated 15–20% increase in merchant revenue.
+-   Engineered reusable, modular UI components using **Vue.js and React**, enforcing scoped styles, responsive image optimization (WebP/AVIF), and aggressive bundle size minimization.
+-   Delivered seamless Mobile-First responsive layouts and frictionless multi-gateway payment flows.
 - **Programming Language**: TypeScript, JavaScript, HTML5, CSS3, Rust (microservices)
 - **Framework**: Vue.js (Vuex), React, Tailwind CSS, Laravel (Backend API)
 - **Platform, server and database**: AWS, Nginx, Redis, MySQL
@@ -144,12 +144,12 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: 6–8 engineers
 - **Project description**: Enterprise Resource Planning (ERP) and business management web portal customized to meet the rigorous quality and UX standards of the Japanese corporate market.
 - **Responsibilities**:
-  - Operated as **Fullstack Software Engineer**, taking primary ownership of the Single Page Application (SPA) client architecture.
-  - Leveraged **Angular with RxJS Observables** for reactive state handling and orchestrated complex business workflows with Angular Reactive Forms.
-  - Ensured strict **Cross-Browser Compatibility** (Chrome, Firefox, Safari, Edge) and achieved pixel-perfect adherence to Japanese UX/UI specifications.
+-   Operated as **Fullstack Software Engineer**, taking primary ownership of the Single Page Application (SPA) client architecture.
+-   Leveraged **Angular with RxJS Observables** for reactive state handling and orchestrated complex business workflows with Angular Reactive Forms.
+-   Ensured strict **Cross-Browser Compatibility** (Chrome, Firefox, Safari, Edge) and achieved pixel-perfect adherence to Japanese UX/UI specifications.
 - **Programming Language**: TypeScript, JavaScript, HTML5, SCSS
 - **Framework**: Angular, Angular Material, RxJS, Spring Boot (Backend API)
-- **Platform, server and database**: Tomcat, Docker, MySQL, Linux
+- **Platform, server and database**: Tomcat, Docker, MySQL
 - **Methodology**: Agile Scrum
 
 ### [12/2016 – 04/2018] Responsive Real-time Telemedicine Web Application
@@ -159,12 +159,12 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: 5 engineers
 - **Project description**: Secure real-time telemedicine and remote healthcare consultation web application connecting patients with certified medical specialists via video and chat.
 - **Responsibilities**:
-  - Acted as **Software Engineer**, building an intuitive, accessible, and fast-loading telemedicine web client.
-  - Engineered **Mobile-First Responsive Layouts**, prioritizing Web Accessibility (a11y) standards for elderly patients and individuals with visual impairments.
-  - Implemented interactive WebRTC video calling interfaces and low-latency real-time messaging UI.
+-   Acted as **Software Engineer**, building an intuitive, accessible, and fast-loading telemedicine web client.
+-   Engineered **Mobile-First Responsive Layouts**, prioritizing Web Accessibility (a11y) standards for elderly patients and individuals with visual impairments.
+-   Implemented interactive WebRTC video calling interfaces and low-latency real-time messaging UI.
 - **Programming Language**: JavaScript, HTML5, CSS3, PHP
 - **Framework**: jQuery, Bootstrap, Laravel (Backend)
-- **Platform, server and database**: MySQL, Apache, Ubuntu Linux
+- **Platform, server and database**: MySQL, Apache, Nginx
 - **Methodology**: Agile
 
 ### [2024 – Present] Tuquet – Developer CLI & Distributed Automation Ecosystem
@@ -174,17 +174,17 @@ Pioneer in marrying a **Product-Led Growth (PLG)** mindset with **AI-augmented e
 - **Team size**: Principal Architect (Solo Project)
 - **Project description**: High-performance open-source developer tooling ecosystem and distributed browser automation suite consisting of a unified master CLI (`tuquet`) in Rust, a visual workflow studio & cross-platform desktop suite (Vue.js / Nuxt, Electron JS), a supervised background runner daemon (`tuquet runner`), and cloud coordination services.
 - **Responsibilities**:
-  - Acted as **Creator & Principal Architect**, architecting the end-to-end multi-runtime ecosystem spanning systems programming in Rust, visual web studio in Vue.js, and distributed task supervision.
-  - Engineered the master CLI (`tuquet`) in **Rust**: built an interactive scoped shell with hierarchical state management, rustyline-based smart tab-completion, ANSI color styling, and sub-command delegation (`automa`, `runner`, `cloud`, `browser`).
-  - Developed the visual automation studio & cross-platform desktop suite with **Vue.js (Nuxt), Electron JS & TypeScript**: designed an interactive node-graph canvas (Drawflow), custom automation blocks, secure local IPC bridges, and a real-time execution inspector with instant visual feedback.
-  - Architected a zero-leakage process supervision engine in the runner daemon (`tuquet runner`) leveraging Win32 Job Objects to eliminate orphan Chromium zombie processes and strictly isolate CPU/RAM.
-  - Engineered a high-throughput Medallion data crawler pipeline (Bronze gzip BLOB storage -> Silver Rust deduplication & HTML sanitizer -> Gold Supabase synchronization).
-  - Standardized local workspace configurations into a Single Source of Truth (`~/.tuquet/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
-  - Automated binary builds, multi-platform packaging, and distribution through an official Windows Scoop bucket (`tuquet/scoop-bucket`).
-  - Published modular open-source ecosystem libraries to the official NPM registry under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/lunar`, `@tuquet/vue-ui`, `@tuquet/extension-runner`).
+-   Acted as **Creator & Principal Architect**, architecting the end-to-end multi-runtime ecosystem spanning systems programming in Rust, visual web studio in Vue.js, and distributed task supervision.
+-   Engineered the master CLI (`tuquet`) in **Rust**: built an interactive scoped shell with hierarchical state management, rustyline-based smart tab-completion, ANSI color styling, and sub-command delegation (`automa`, `runner`, `cloud`, `browser`).
+-   Developed the visual automation studio & cross-platform desktop suite with **Vue.js (Nuxt), Electron JS & TypeScript**: designed an interactive node-graph canvas (Drawflow), custom automation blocks, secure local IPC bridges, and a real-time execution inspector with instant visual feedback.
+-   Architected a zero-leakage process supervision engine in the runner daemon (`tuquet runner`) leveraging kernel process tree sandboxing to eliminate orphan Chromium zombie processes and strictly isolate CPU/RAM.
+-   Engineered a high-throughput Medallion data crawler pipeline (Bronze gzip BLOB storage -> Silver Rust deduplication & HTML sanitizer -> Gold Supabase synchronization).
+-   Standardized local workspace configurations into a Single Source of Truth (`~/.tuquet/`), eliminating configuration drift across CLI, extensions, and runner runtimes.
+-   Automated binary builds, multi-platform packaging, and distribution through an official Scoop bucket (`tuquet/scoop-bucket`).
+-   Published modular open-source ecosystem libraries to the official NPM registry under the `@tuquet` scope (`@tuquet/md-export`, `@tuquet/lunar`, `@tuquet/vue-ui`, `@tuquet/extension-runner`).
 - **Programming Language**: Rust, TypeScript, JavaScript, SQL
 - **Framework**: Vue.js Ecosystem (Nuxt, Drawflow), Electron JS, Tailwind CSS, Tokio (Rust Async), Node.js
-- **Platform, server and database**: Supabase, PostgreSQL, WebSockets, Win32 Job Objects, Docker, Scoop, GitHub Actions
+- **Platform, server and database**: Supabase, PostgreSQL, WebSockets, Process Tree Sandboxing, Docker, Scoop, GitHub Actions
 - **Methodology**: Agile Kanban
 
 ---

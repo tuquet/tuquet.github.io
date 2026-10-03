@@ -322,10 +322,10 @@ export const sponsors: SponsorItem[] = [
     "logo": "/icons/runner.svg",
     "domain": "github.com/tuquet/runner",
     "timeline": "2024 – Present",
-    "desc": "Zero-zombie Chromium process supervision engine in Rust using Win32 Job Objects.",
+    "desc": "Zero-zombie Chromium process supervision engine in Rust using kernel process trees.",
     "tags": [
       "Rust",
-      "Win32 API",
+      "Process Trees",
       "IO Completion Ports"
     ],
     "left": 334.9,
