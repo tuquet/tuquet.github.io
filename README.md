@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/icons/tuquet.svg" width="76" height="76" alt="Tuquet Logo" />
+  <img src="https://tuquet.github.io/icons/tuquet.svg" width="76" height="76" alt="Tuquet Logo" />
   <h1>Tuquet Hub</h1>
   <p><strong>Personal Portfolio, Systems Architecture &amp; Open-Source Automation Portal</strong></p>
 
